@@ -1,10 +1,34 @@
-interface Pokemon {
-  id: number;
-  name: string;
-}
+import { useEffect, useState } from "react";
+import fetchPokemon from "../../services";
+import Card from "../Cards/Card";
+import { IPokemon } from "../Pokemons/types";
 
-const List = (props: Pokemon) => {
-  return <li key={props.id}></li>;
+const List = () => {
+  const [allPokemos, setAllPokemons] = useState([]);
+  const [loadMore, setLoadMore] = useState(
+    "https://pokeapi.co/api/v2/pokemon?limit=20"
+  );
+
+  const getAllPokemons = async () => {
+    const res = await fetch(loadMore);
+    const data = await res.json();
+    console.log(data.next);
+  };
+
+  useEffect(() => {
+    getAllPokemons();
+  }, []);
+
+  return (
+    <div>
+      <Card
+        name="Bulbasaur"
+        color="grass"
+        image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
+      ></Card>
+      <button onClick={getAllPokemons}>list</button>
+    </div>
+  );
 };
 
 export default List;

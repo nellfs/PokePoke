@@ -1,5 +1,11 @@
+import List from "../../components/List/List";
+
 const Home = () => {
-  return <div>pokewhat</div>;
+  return (
+    <div>
+      <List></List>
+    </div>
+  );
 };
 
 export default Home;
