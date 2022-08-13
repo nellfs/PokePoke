@@ -5,7 +5,7 @@ const GlobalStyle = createGlobalStyle`
 }
 
 body{
-    font-size: 20px;
+    font-size: 30px;
     margin: 0;
     padding: 0;
 }
