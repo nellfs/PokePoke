@@ -1,12 +1,12 @@
 import styled, { css } from "styled-components";
 
 interface PokemonType {
-  type: string;
+  color_type: string;
 }
 
 export const PokemonCard = styled.div<PokemonType>`
-  ${({ theme, type }) => css`
-    background: ${theme.colors.pokemon_types.grass};
+  ${({ theme, color_type }) => css`
+    background: ${theme.colors.pokemon_types[color_type]};
   `}
   display: flex;
   flex-direction: column;

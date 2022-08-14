@@ -9,3 +9,10 @@ export interface IPokemon {
   type: PokemonType;
   image: string;
 }
+
+export interface IPokemonTypes {
+  eletric: string;
+  grass: string;
+  water: string;
+  fire: string;
+}
