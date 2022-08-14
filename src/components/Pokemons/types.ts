@@ -1,18 +1,10 @@
 import theme from "../../styles/theme";
 
-type PokemonType = {
-  types: string;
-};
+export type PokemonTypes = "fire" | "grass" | "water" | "fire";
+
 export interface IPokemon {
   id: number;
   name: string;
-  type: PokemonType;
+  type: PokemonTypes;
   image: string;
-}
-
-export interface IPokemonTypes {
-  eletric: string;
-  grass: string;
-  water: string;
-  fire: string;
 }

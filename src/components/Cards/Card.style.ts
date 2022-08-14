@@ -1,30 +1,46 @@
 import styled, { css } from "styled-components";
+import theme from "../../styles/theme";
 
 interface PokemonType {
-  color_type: string;
+  color_type: keyof typeof import("../../styles/theme")["default"]["colors"]["pokemon_types"];
 }
 
 export const PokemonCard = styled.div<PokemonType>`
   ${({ theme, color_type }) => css`
-    background: ${theme.colors.pokemon_types[color_type]}; //<-
+    background: ${(props) => theme.colors.pokemon_types[color_type]}; //<-
   `}
+  margin: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 14rem;
+  border-radius: 16px;
+`;
+
+export const PokemonInfo = styled.div`
   display: flex;
   flex-direction: column;
-  width: 280px;
+`;
 
-  // i want to use the 'grass' prop to reference props.theme.colors.grass in background
+export const PokemonImage = styled.img`
+  margin: 0px;
+  width: 100px;
+  padding: 0px;
+`;
 
-  background: ${(props) => props.color};
-  height: 320px;
-  margin: 0 auto;
-  outline-color: red;
-  outline-offset: 10px;
+export const PokemonText = styled.h1`
+  color: ${(props) => theme.colors.white};
+  font-size: 20px;
+`;
 
-  img {
-    height: 90%;
-  }
-
-  h1 {
-    background-color: red;
-  }
+export const PokemonTypesCard = styled.h1`
+  color: ${(props) => theme.colors.white};
+  margin: 1px;
+  font-size: 14px;
+  background-color: rgb(255, 255, 255, 26%);
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
 `;
