@@ -22,9 +22,12 @@ const List = () => {
   return (
     <div>
       <Card
-        name="Bulbasaur"
-        color="grass"
-        image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
+        id={0}
+        name={"Bulbasaur"}
+        type={{ types: "grass" }}
+        image={
+          "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
+        }
       ></Card>
       <button onClick={getAllPokemons}>list</button>
     </div>

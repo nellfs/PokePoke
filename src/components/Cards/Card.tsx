@@ -1,16 +1,13 @@
-import { StyledCard } from "../styles/Card.style";
+import theme from "../../styles/theme";
+import { IPokemon } from "../Pokemons/types";
+import { PokemonCard } from "./Card.style";
 
-interface ICard {
-  name: string;
-  color: string;
-  image: string;
-}
-
-const Card = (cardProps: ICard) => {
+const Card = (props: IPokemon) => {
   return (
-    <div>
-      <StyledCard>card</StyledCard>
-    </div>
+    <PokemonCard type={"grass"}>
+      <img src={props.image}></img>
+      <h1>{props.name}</h1>
+    </PokemonCard>
   );
 };
 
