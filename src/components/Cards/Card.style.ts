@@ -6,7 +6,7 @@ interface PokemonType {
 
 export const PokemonCard = styled.div<PokemonType>`
   ${({ theme, color_type }) => css`
-    background: ${theme.colors.pokemon_types[color_type]};
+    background: ${theme.colors.pokemon_types[color_type]}; //<-
   `}
   display: flex;
   flex-direction: column;
