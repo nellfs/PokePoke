@@ -38,7 +38,6 @@ export const PokemonText = styled.h1`
 export const PokemonTypesCard = styled.div`
   color: ${(props) => theme.colors.white};
   margin: 1px;
-  display: inline-block;
   font-weight: 500;
   font-size: 14px;
   background-color: rgb(255, 255, 255, 26%);
