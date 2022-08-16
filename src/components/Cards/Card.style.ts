@@ -35,12 +35,19 @@ export const PokemonText = styled.h1`
   font-size: 20px;
 `;
 
-export const PokemonTypesCard = styled.h1`
+export const PokemonTypesCard = styled.div`
   color: ${(props) => theme.colors.white};
   margin: 1px;
+  display: inline-block;
+  font-weight: 500;
   font-size: 14px;
   background-color: rgb(255, 255, 255, 26%);
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 10px;
+`;
+
+export const Test = styled.div`
+  background-color: red;
+  display: inline-block;
 `;
