@@ -5,48 +5,49 @@ interface PokemonType {
   color_type: keyof typeof import("../../styles/theme")["default"]["colors"]["pokemon_types"];
 }
 
-export const PokemonCard = styled.div<PokemonType>`
+export const PokemonCard = styled.li<PokemonType>`
   ${({ theme, color_type }) => css`
     background: ${(props) => theme.colors.pokemon_types[color_type]}; //<-
   `}
-  margin: 10px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 10px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  width: 14rem;
-  border-radius: 16px;
-`;
-
-export const PokemonInfo = styled.div`
-  display: flex;
-  flex-direction: column;
+  border-radius: 10px;
+  width: 210px;
+  height: 140px;
+  justify-content: left;
 `;
 
 export const PokemonImage = styled.img`
-  margin: 0px;
-  width: 100px;
-  padding: 0px;
+  width: 118.75px;
+  height: 118.75px;
 `;
 
-export const PokemonText = styled.h1`
-  color: ${(props) => theme.colors.white};
-  font-size: 20px;
+export const RightSide = styled.div`
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  height: 20%;
+  width: 100%;
+  position: relative;
 `;
 
-export const PokemonTypesCard = styled.div`
-  color: ${(props) => theme.colors.white};
-  margin: 1px;
-  font-weight: 500;
-  font-size: 14px;
-  background-color: rgb(255, 255, 255, 26%);
-  padding-left: 10px;
-  padding-right: 10px;
+export const PokemonName = styled.h1`
+  padding: 6px;
   border-radius: 10px;
+  font-style: normal;
+  font-size: 21px;
+  color: ${theme.colors.background};
+  text-transform: capitalize;
 `;
 
-export const Test = styled.div`
-  background-color: red;
-  display: inline-block;
+export const PokemonType = styled.h2`
+  display: inline-flex;
+  margin-left: 10px;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-bottom: 1px;
+  padding-top: 1px;
+  border-radius: 100px;
+  font-weight: 500;
+  color: white;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 24%);
 `;

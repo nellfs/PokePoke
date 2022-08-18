@@ -4,9 +4,9 @@ export default {
     background: "#fff",
     outline_card: "#adadad",
     pokemon_types: {
-      eletric: "#ffeb7e",
+      eletric: "#ffd76f",
       grass: "#49d0b0",
-      water: "#74f0ff",
+      water: "#76befe",
       fire: "#fc6c6d",
     },
   },

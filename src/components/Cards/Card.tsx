@@ -3,24 +3,21 @@ import { IPokemon } from "../Pokemons/types";
 import {
   PokemonCard,
   PokemonImage,
-  PokemonInfo,
-  PokemonText,
-  PokemonTypesCard,
-  Test,
+  PokemonName,
+  PokemonType,
+  RightSide,
 } from "./Card.style";
 
-const Card = (props: IPokemon) => {
+const Card = (pokemon: IPokemon) => {
   return (
     <>
-      <PokemonCard color_type={props.type}>
-        <PokemonInfo>
-          <PokemonText>{props.name}</PokemonText>
-          <PokemonTypesCard>0</PokemonTypesCard>
-        </PokemonInfo>
-        <PokemonImage src={props.image}></PokemonImage>
-        <Test>test text</Test>
+      <PokemonCard color_type={pokemon.type}>
+        <PokemonName>{pokemon.name}</PokemonName>
+        <PokemonType>{pokemon.type}</PokemonType>
+        <RightSide>
+          <PokemonImage src={pokemon.image}></PokemonImage>
+        </RightSide>
       </PokemonCard>
-      <Test>test text</Test>
     </>
   );
 };
