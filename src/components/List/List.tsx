@@ -48,6 +48,14 @@ const List = () => {
               "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png"
             }
           ></Card>
+          <Card
+            id={3}
+            name={"Pikachu"}
+            type={"electric"}
+            image={
+              "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
+            }
+          ></Card>
         </PokemonList>
       </PokemonSection>
       <button onClick={getAllPokemons}>list</button>

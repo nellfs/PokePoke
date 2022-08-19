@@ -1,6 +1,24 @@
 import theme from "../../styles/theme";
 
-export type PokemonTypes = "fire" | "grass" | "water" | "eletric";
+export type PokemonTypes =
+  | "bug"
+  | "dark"
+  | "dragon"
+  | "electric"
+  | "fairy"
+  | "fighting"
+  | "fire"
+  | "flying"
+  | "ghost"
+  | "grass"
+  | "ground"
+  | "ice"
+  | "normal"
+  | "poison"
+  | "psychic"
+  | "rock"
+  | "steel"
+  | "water";
 
 export interface IPokemon {
   id: number;
