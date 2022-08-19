@@ -8,7 +8,7 @@ export type PokemonTypes =
   | "fairy"
   | "fighting"
   | "fire"
-  | "flying"
+  | "fly"
   | "ghost"
   | "grass"
   | "ground"
@@ -23,6 +23,6 @@ export type PokemonTypes =
 export interface IPokemon {
   id: number;
   name: string;
-  type: PokemonTypes;
+  types: PokemonTypes[];
   image: string;
 }

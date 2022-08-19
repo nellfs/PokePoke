@@ -15,19 +15,32 @@ export const PokemonCard = styled.li<PokemonType>`
   justify-content: left;
 `;
 
+export const PokeballImage = styled.img`
+  position: absolute;
+  z-index: 0;
+  width: 98px;
+  opacity: 0.3;
+  margin-left: 2px;
+`;
+
 export const PokemonImage = styled.img`
-z-index: 2;
-  width: 110px;
+  position: absolute;
+  z-index: 1;
+  width: 100px;
 `;
 
 export const RightSide = styled.div`
-  display: flex;
-  position: absolute;
-  justify-content: right;
-  align-items: center;
-  bottom: 75px;
-  width: 100%;
+  width: 50%;
   position: relative;
+`;
+
+export const LeftSide = styled.div`
+  width: 50%;
+  display: flex;
+`;
+
+export const PokemonContent = styled.div`
+  display: flex;
 `;
 
 export const PokemonName = styled.h1`
@@ -40,11 +53,7 @@ export const PokemonName = styled.h1`
   text-transform: capitalize;
 `;
 
-export const PokemonType = styled.h2<PokemonType>`
-${({theme, color_type})=> css`
-background-color: ${theme.colors.pokemon_types[color_type]};
-`
-}  
+export const PokemonType = styled.h2`
   margin-left: 10px;
   margin-bottom: 5px;
   display: inline-block;
@@ -58,20 +67,10 @@ background-color: ${theme.colors.pokemon_types[color_type]};
   font-size: 15px;
   outline-style: solid;
   outline-width: 1px;
-  outline-color: rgba(255, 255, 255, .3);
-
+  outline-color: rgba(255, 255, 255, 0.6);
 `;
 
 export const PokemonTypeList = styled.div`
-margin-top: 5px;
-width: 50%;
-`
-
-export const PokeballImage = styled.img`
-margin-right: 4px;
-z-index: 1;
-display: flex;
-position: absolute;
-width: 100px;
-opacity: .3;
-`
+  margin-top: 5px;
+  width: 50%;
+`;

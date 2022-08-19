@@ -1,10 +1,12 @@
 import theme from "../../styles/theme";
 
 import { IPokemon } from "../Pokemons/types";
-import pokeballBackground from '../../assets/img/pokeballcard_bg.png';
+import pokeballBackground from "../../assets/img/pokeballcard_bg.png";
 import {
+  LeftSide,
   PokeballImage,
   PokemonCard,
+  PokemonContent,
   PokemonImage,
   PokemonName,
   PokemonType,
@@ -13,22 +15,24 @@ import {
 } from "./Card.style";
 
 const Card = (pokemon: IPokemon) => {
-  return (
-    <>
-      <PokemonCard color_type={pokemon.type}>
-        <PokemonName>{pokemon.name}</PokemonName>
+  const renderTypes = pokemon.types.map((n, i) => (
+    <PokemonType>{pokemon.types[i]}</PokemonType>
+  ));
 
-        <PokemonTypeList>
-        <PokemonType color_type={pokemon.type}>{pokemon.type}</PokemonType> 
-        <PokemonType color_type={"poison"}>unknown</PokemonType>
-      </PokemonTypeList>
+  return (
+    <PokemonCard color_type={pokemon.types[0]}>
+      <PokemonName>{pokemon.name}</PokemonName>
+      <PokemonContent>
+        <LeftSide>
+          <PokemonTypeList>{renderTypes}</PokemonTypeList>
+        </LeftSide>
 
         <RightSide>
-        <PokemonImage src={pokemon.image}></PokemonImage>
-        <PokeballImage src={pokeballBackground}></PokeballImage>
+          <PokeballImage src={pokeballBackground}></PokeballImage>
+          <PokemonImage src={pokemon.image}></PokemonImage>
         </RightSide>
-      </PokemonCard>
-    </>
+      </PokemonContent>
+    </PokemonCard>
   );
 };
 
