@@ -16,7 +16,7 @@ import {
 
 const Card = (pokemon: IPokemon) => {
   const renderTypes = pokemon.types.map((n, i) => (
-    <PokemonType>{pokemon.types[i]}</PokemonType>
+    <PokemonType key={n}>{pokemon.types[i]}</PokemonType>
   ));
 
   return (

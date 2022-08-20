@@ -8,7 +8,7 @@ export type PokemonTypes =
   | "fairy"
   | "fighting"
   | "fire"
-  | "fly"
+  | "flying"
   | "ghost"
   | "grass"
   | "ground"

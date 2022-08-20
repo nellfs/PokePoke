@@ -11,7 +11,7 @@ export default {
       fairy: "#c86a90",
       fighting: "#d06e52",
       fire: "#fc6c6d",
-      fly: "#91aec2",
+      flying: "#91aec2",
       ghost: "#6868bd",
       grass: "#49d0b0",
       ground: "#b18551",
