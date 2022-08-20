@@ -15,9 +15,14 @@ import {
 } from "./Card.style";
 
 const Card = (pokemon: IPokemon) => {
-  const renderTypes = pokemon.types.map((n, i) => (
-    <PokemonType key={n}>{pokemon.types[i]}</PokemonType>
-  ));
+  const renderTypes = pokemon.types.map((n, i) => {
+    if (pokemon.types[i] != undefined) {
+      return <PokemonType key={n}>{pokemon.types[i]}</PokemonType>;
+    }
+    //  <PokemonType key={n}>
+    //  {pokemon.types[i] ? pokemon.types[i] : null}
+    //</PokemonType>
+  });
 
   return (
     <PokemonCard color_type={pokemon.types[0]}>

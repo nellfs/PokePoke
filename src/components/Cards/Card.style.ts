@@ -21,12 +21,14 @@ export const PokeballImage = styled.img`
   width: 98px;
   opacity: 0.3;
   margin-left: 2px;
+  top: -5px;
 `;
 
 export const PokemonImage = styled.img`
   position: absolute;
   z-index: 1;
   width: 100px;
+  top: -5px;
 `;
 
 export const RightSide = styled.div`
@@ -44,11 +46,13 @@ export const PokemonContent = styled.div`
 `;
 
 export const PokemonName = styled.h1`
+  display: inline-block;
   padding: 6px;
   margin-left: 4px;
   border-radius: 10px;
   font-style: normal;
-  font-size: 21px;
+  width: 100%;
+  font-size: 22px;
   color: ${theme.colors.background};
   text-transform: capitalize;
 `;
