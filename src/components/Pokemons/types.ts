@@ -24,5 +24,5 @@ export interface IPokemon {
   id: number;
   name: string;
   types: PokemonTypes[];
-  image: string;
+  image_id?: number;
 }

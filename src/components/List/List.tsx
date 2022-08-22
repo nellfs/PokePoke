@@ -1,56 +1,50 @@
 import { useEffect, useState } from "react";
+import api from "../../services";
 import fetchPokemon from "../../services";
 import Card from "../Cards/Card";
-import { IPokemon } from "../Pokemons/types";
+import { PokemonCard } from "../Cards/Card.style";
+import { IPokemon, PokemonTypes } from "../Pokemons/types";
 import { PokemonSection, PokemonList } from "./List.style";
 
 const List = () => {
-  const [testPokemon, setPokemon] = useState<IPokemon>({
-    id: Math.floor(Math.random() * 900) + 1,
-    name: "pokemon",
-    types: ["grass", "water"],
-    image: "null",
-  });
+  const [allPokemons, setAllPokemons] = useState([]);
+  const [loadMore, setLoadMore] = useState(api);
 
-  const [pokedata, setPokedata] = useState([]);
+  const getAllPokemons = async () => {
+    const res = await fetch(api);
+    const data = await res.json();
 
-  const [allPokemos, setAllPokemons] = useState([]);
-  const [loadMore, setLoadMore] = useState(
-    "https://pokeapi.co/api/v2/pokemon?limit=20"
-  );
+    setLoadMore(data.next);
 
-  const getPokemon = async (id: number) => {
-    console.clear();
-    fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
-      .then((response) => response.json())
-      .then((data) =>
-        setPokemon({
-          ...data,
-          image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`,
-          types: [data.types[0].type.name, data.types[1]?.type.name],
-        })
-      );
+    function createPokemonObject(result: []) {
+      result.forEach(async function (pokemon: IPokemon) {
+        const res = await fetch(
+          `https://pokeapi.co/api/v2/pokemon/${pokemon.name}`
+        );
+        const data = await res.json();
+        setAllPokemons((oldArray) => [...oldArray, data]);
+      });
+    }
+    createPokemonObject(data.results);
+    console.log(allPokemons);
   };
 
-  console.log("types=", testPokemon.types[0], "\n", "data=", testPokemon.types);
+  useEffect(() => {
+    getAllPokemons();
+  }, []);
 
   return (
-    <>
-      <PokemonSection>
-        <PokemonList>
+    <PokemonSection>
+      <PokemonList>
+        {allPokemons.map((pokemon: IPokemon) => (
           <Card
-            id={testPokemon.id}
-            name={testPokemon.name}
-            types={testPokemon.types}
-            image={testPokemon.image}
-          />
-        </PokemonList>
-      </PokemonSection>
-
-      <button onClick={() => getPokemon(Math.floor(Math.random() * 900) + 1)}>
-        gerar novo
-      </button>
-    </>
+            id={pokemon.id}
+            name={pokemon.name}
+            types={[pokemon.types[0].type.name, pokemon.types[1]?.type.name]}
+          ></Card>
+        ))}
+      </PokemonList>
+    </PokemonSection>
   );
 };
 

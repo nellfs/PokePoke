@@ -16,12 +16,8 @@ import {
 
 const Card = (pokemon: IPokemon) => {
   const renderTypes = pokemon.types.map((n, i) => {
-    if (pokemon.types[i] != undefined) {
+    if (pokemon.types[i] != undefined)
       return <PokemonType key={n}>{pokemon.types[i]}</PokemonType>;
-    }
-    //  <PokemonType key={n}>
-    //  {pokemon.types[i] ? pokemon.types[i] : null}
-    //</PokemonType>
   });
 
   return (
@@ -34,7 +30,9 @@ const Card = (pokemon: IPokemon) => {
 
         <RightSide>
           <PokeballImage src={pokeballBackground}></PokeballImage>
-          <PokemonImage src={pokemon.image}></PokemonImage>
+          <PokemonImage
+            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
+          ></PokemonImage>
         </RightSide>
       </PokemonContent>
     </PokemonCard>
