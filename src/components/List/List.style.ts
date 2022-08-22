@@ -12,4 +12,5 @@ export const PokemonList = styled.ul`
   grid-gap: 10px;
   grid-template-columns: repeat(3, 1fr);
   list-style: none;
+  margin-bottom: 10px;
 `;

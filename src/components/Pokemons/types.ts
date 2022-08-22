@@ -20,6 +20,12 @@ export type PokemonTypes =
   | "steel"
   | "water";
 
+export type PokemonTypeSingle = {
+  type: {
+    name: string;
+  };
+};
+
 export interface IPokemon {
   id: number;
   name: string;

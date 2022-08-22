@@ -16,7 +16,7 @@ export default {
       grass: "#49d0b0",
       ground: "#b18551",
       ice: "#80d4e0",
-      normal: "#8b5f6b",
+      normal: "#8b7f85",
       poison: "#9a68d7",
       psychic: "#d86ca6",
       rock: "#885641",

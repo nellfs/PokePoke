@@ -2,32 +2,48 @@ import { useEffect, useState } from "react";
 import api from "../../services";
 import fetchPokemon from "../../services";
 import Card from "../Cards/Card";
-import { PokemonCard } from "../Cards/Card.style";
+import { PokemonCard, PokemonType } from "../Cards/Card.style";
 import { IPokemon, PokemonTypes } from "../Pokemons/types";
 import { PokemonSection, PokemonList } from "./List.style";
 
 const List = () => {
+  //FIX ANY TYPES
+
   const [allPokemons, setAllPokemons] = useState([]);
   const [loadMore, setLoadMore] = useState(api);
 
   const getAllPokemons = async () => {
+    const getPokemonUrl = (pokemon_name: string) =>
+      `https://pokeapi.co/api/v2/pokemon/${pokemon_name}`;
+
     const res = await fetch(api);
     const data = await res.json();
 
     setLoadMore(data.next);
 
     function createPokemonObject(result: []) {
+      const pokemonPromises: any[] = [];
+
       result.forEach(async function (pokemon: IPokemon) {
-        const res = await fetch(
-          `https://pokeapi.co/api/v2/pokemon/${pokemon.name}`
+        pokemonPromises.push(
+          fetch(getPokemonUrl(pokemon.name)).then((response) => response.json())
         );
-        const data = await res.json();
-        setAllPokemons((oldArray) => [...oldArray, data]);
+      });
+
+      Promise.all(pokemonPromises).then((pokemons: any) => {
+        setAllPokemons(pokemons);
       });
     }
+
+    function createPokemon() {
+      return <div>hello</div>;
+    }
+
     createPokemonObject(data.results);
-    console.log(allPokemons);
+    // console.log(allPokemons);
   };
+
+  const createPokemon = () => {};
 
   useEffect(() => {
     getAllPokemons();
@@ -36,7 +52,7 @@ const List = () => {
   return (
     <PokemonSection>
       <PokemonList>
-        {allPokemons.map((pokemon: IPokemon) => (
+        {allPokemons.map((pokemon: any) => (
           <Card
             id={pokemon.id}
             name={pokemon.name}

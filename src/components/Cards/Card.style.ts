@@ -52,7 +52,7 @@ export const PokemonName = styled.h1`
   border-radius: 10px;
   font-style: normal;
   width: 100%;
-  font-size: 22px;
+  font-size: 18px;
   color: ${theme.colors.background};
   text-transform: capitalize;
 `;
