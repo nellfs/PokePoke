@@ -22,28 +22,23 @@ const List = () => {
     setLoadMore(data.next);
 
     function createPokemonObject(result: []) {
-      const pokemonPromises: any[] = [];
+      const pokemonPromises: any[] = []; //array
 
       result.forEach(async function (pokemon: IPokemon) {
         pokemonPromises.push(
+          //inserting promises into array
           fetch(getPokemonUrl(pokemon.name)).then((response) => response.json())
         );
       });
 
       Promise.all(pokemonPromises).then((pokemons: any) => {
+        // allPokemons to the already resolved array
         setAllPokemons(pokemons);
       });
     }
 
-    function createPokemon() {
-      return <div>hello</div>;
-    }
-
     createPokemonObject(data.results);
-    // console.log(allPokemons);
   };
-
-  const createPokemon = () => {};
 
   useEffect(() => {
     getAllPokemons();
