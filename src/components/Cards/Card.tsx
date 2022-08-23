@@ -16,12 +16,12 @@ import {
 
 const Card = (pokemon: IPokemon) => {
   const renderTypes = pokemon.types.map((n, i) => {
-    if (pokemon.types[i] != undefined)
-      return <PokemonType key={n}>{pokemon.types[i]}</PokemonType>;
+    if (pokemon.types[i].type.name != undefined)
+      return <PokemonType key={i}>{pokemon.types[i].type.name}</PokemonType>;
   });
 
   return (
-    <PokemonCard color_type={pokemon.types[0]}>
+    <PokemonCard color_type={pokemon.types[0].type.name}>
       <PokemonName>{pokemon.name}</PokemonName>
       <PokemonContent>
         <LeftSide>

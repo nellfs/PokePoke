@@ -22,13 +22,31 @@ export type PokemonTypes =
 
 export type PokemonTypeSingle = {
   type: {
-    name: string;
+    name:
+      | "bug"
+      | "dark"
+      | "dragon"
+      | "electric"
+      | "fairy"
+      | "fighting"
+      | "fire"
+      | "flying"
+      | "ghost"
+      | "grass"
+      | "ground"
+      | "ice"
+      | "normal"
+      | "poison"
+      | "psychic"
+      | "rock"
+      | "steel"
+      | "water";
   };
 };
 
 export interface IPokemon {
   id: number;
   name: string;
-  types: PokemonTypes[];
+  types: PokemonTypeSingle[];
   image_id?: number;
 }

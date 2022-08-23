@@ -7,9 +7,7 @@ import { IPokemon, PokemonTypes } from "../Pokemons/types";
 import { PokemonSection, PokemonList } from "./List.style";
 
 const List = () => {
-  //FIX ANY TYPES
-
-  const [allPokemons, setAllPokemons] = useState([]);
+  const [allPokemons, setAllPokemons] = useState<IPokemon[]>([]);
   const [loadMore, setLoadMore] = useState(api);
 
   const getAllPokemons = async () => {
@@ -22,17 +20,15 @@ const List = () => {
     setLoadMore(data.next);
 
     function createPokemonObject(result: []) {
-      const pokemonPromises: any[] = []; //array
+      const pokemonPromises: Promise<IPokemon>[] = [];
 
       result.forEach(async function (pokemon: IPokemon) {
         pokemonPromises.push(
-          //inserting promises into array
           fetch(getPokemonUrl(pokemon.name)).then((response) => response.json())
         );
       });
 
-      Promise.all(pokemonPromises).then((pokemons: any) => {
-        // allPokemons to the already resolved array
+      Promise.all(pokemonPromises).then((pokemons: IPokemon[]) => {
         setAllPokemons(pokemons);
       });
     }
@@ -47,11 +43,22 @@ const List = () => {
   return (
     <PokemonSection>
       <PokemonList>
-        {allPokemons.map((pokemon: any) => (
+        {allPokemons.map((pokemon: IPokemon) => (
           <Card
             id={pokemon.id}
             name={pokemon.name}
-            types={[pokemon.types[0].type.name, pokemon.types[1]?.type.name]}
+            types={[
+              {
+                type: {
+                  name: pokemon.types[0].type.name,
+                },
+              },
+              {
+                type: {
+                  name: pokemon.types[1]?.type.name,
+                },
+              },
+            ]}
           ></Card>
         ))}
       </PokemonList>
