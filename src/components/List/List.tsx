@@ -45,6 +45,7 @@ const List = () => {
       <PokemonList>
         {allPokemons.map((pokemon: IPokemon) => (
           <Card
+            key={pokemon.id}
             id={pokemon.id}
             name={pokemon.name}
             types={[
