@@ -63,7 +63,6 @@ export const PokemonName = styled.h1`
   display: inline-block;
   padding: 6px;
   margin-left: 4px;
-  border-radius: 10px;
   font-style: normal;
   font-size: 18px;
   color: ${theme.colors.background};

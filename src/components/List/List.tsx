@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+
 import api from "../../services";
-import fetchPokemon from "../../services";
+import { IPokemon } from "../Pokemons/types";
 import Card from "../Cards/Card";
-import { PokemonCard, PokemonType } from "../Cards/Card.style";
-import { IPokemon, PokemonTypes } from "../Pokemons/types";
+
+import { LoadButton } from "../Load/Load.style";
 import { PokemonSection, PokemonList } from "./List.style";
 
 const List = () => {
@@ -14,14 +15,13 @@ const List = () => {
     const getPokemonUrl = (pokemon_name: string) =>
       `https://pokeapi.co/api/v2/pokemon/${pokemon_name}`;
 
-    const res = await fetch(api);
+    const res = await fetch(loadMore);
     const data = await res.json();
 
+    const pokemonPromises: Promise<IPokemon>[] = [];
     setLoadMore(data.next);
 
     function createPokemonObject(result: []) {
-      const pokemonPromises: Promise<IPokemon>[] = [];
-
       result.forEach(async function (pokemon: IPokemon) {
         pokemonPromises.push(
           fetch(getPokemonUrl(pokemon.name)).then((response) => response.json())
@@ -30,40 +30,40 @@ const List = () => {
 
       Promise.all(pokemonPromises).then((pokemons: IPokemon[]) => {
         setAllPokemons(pokemons);
+        console.log(pokemonPromises);
       });
     }
 
     createPokemonObject(data.results);
   };
 
-  useEffect(() => {
-    getAllPokemons();
-  }, []);
-
   return (
-    <PokemonSection>
-      <PokemonList>
-        {allPokemons.map((pokemon: IPokemon) => (
-          <Card
-            key={pokemon.id}
-            id={pokemon.id}
-            name={pokemon.name}
-            types={[
-              {
-                type: {
-                  name: pokemon.types[0].type.name,
+    <>
+      <PokemonSection>
+        <PokemonList>
+          {allPokemons.map((pokemon: IPokemon) => (
+            <Card
+              key={pokemon.id}
+              id={pokemon.id}
+              name={pokemon.name}
+              types={[
+                {
+                  type: {
+                    name: pokemon.types[0].type.name,
+                  },
                 },
-              },
-              {
-                type: {
-                  name: pokemon.types[1]?.type.name,
+                {
+                  type: {
+                    name: pokemon.types[1]?.type.name,
+                  },
                 },
-              },
-            ]}
-          ></Card>
-        ))}
-      </PokemonList>
-    </PokemonSection>
+              ]}
+            ></Card>
+          ))}
+        </PokemonList>
+      </PokemonSection>
+      <LoadButton onClick={(e) => getAllPokemons()}>Load More</LoadButton>
+    </>
   );
 };
 
