@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import api from "../../services";
 import { IPokemon } from "../Pokemons/types";
@@ -12,13 +12,13 @@ const List = () => {
   const [loadMore, setLoadMore] = useState(api);
 
   const getAllPokemons = async () => {
+    const pokemonPromises: Promise<IPokemon>[] = [];
     const getPokemonUrl = (pokemon_name: string) =>
       `https://pokeapi.co/api/v2/pokemon/${pokemon_name}`;
 
     const res = await fetch(loadMore);
     const data = await res.json();
 
-    const pokemonPromises: Promise<IPokemon>[] = [];
     setLoadMore(data.next);
 
     function createPokemonObject(result: []) {
@@ -30,12 +30,14 @@ const List = () => {
 
       Promise.all(pokemonPromises).then((pokemons: IPokemon[]) => {
         setAllPokemons(pokemons);
-        console.log(pokemonPromises);
       });
     }
-
     createPokemonObject(data.results);
   };
+
+  useEffect(() => {
+    getAllPokemons();
+  }, []);
 
   return (
     <>
@@ -62,7 +64,7 @@ const List = () => {
           ))}
         </PokemonList>
       </PokemonSection>
-      <LoadButton onClick={(e) => getAllPokemons()}>Load More</LoadButton>
+      <LoadButton onClick={(e) => getAllPokemons()}>Load All</LoadButton>
     </>
   );
 };

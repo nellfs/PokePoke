@@ -5,7 +5,7 @@ export const PokemonSection = styled.div`
   justify-content: center;
   margin-top: 10px;
   margin-bottom: 10px;
-  overflow-x: hidden;
+  overflow: hidden;
 `;
 
 export const PokemonList = styled.ul`
