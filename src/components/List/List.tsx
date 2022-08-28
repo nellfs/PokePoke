@@ -11,6 +11,8 @@ const List = () => {
   const [allPokemons, setAllPokemons] = useState<IPokemon[]>([]);
   const [loadMore, setLoadMore] = useState(api);
 
+  const pokearray: any = [];
+
   const getAllPokemons = async () => {
     const pokemonPromises: Promise<IPokemon>[] = [];
     const getPokemonUrl = (pokemon_name: string) =>
@@ -27,20 +29,22 @@ const List = () => {
           fetch(getPokemonUrl(pokemon.name)).then((response) => response.json())
         );
       });
-
       Promise.all(pokemonPromises).then((pokemons: IPokemon[]) => {
         setAllPokemons(pokemons);
+        pokearray.push(...pokemons);
+        console.log(pokearray[0].name);
       });
     }
+
     createPokemonObject(data.results);
   };
 
-  useEffect(() => {
-    getAllPokemons();
-  }, []);
-
+  const test = () => {
+    return <div>{"ok"}</div>;
+  };
   return (
     <>
+      {test()}
       <PokemonSection>
         <PokemonList>
           {allPokemons.map((pokemon: IPokemon) => (
@@ -64,7 +68,7 @@ const List = () => {
           ))}
         </PokemonList>
       </PokemonSection>
-      <LoadButton onClick={(e) => getAllPokemons()}>Load All</LoadButton>
+      <LoadButton onClick={(e) => getAllPokemons()}>Load More</LoadButton>
     </>
   );
 };
