@@ -8,10 +8,9 @@ import { LoadButton } from "../Load/Load.style";
 import { PokemonSection, PokemonList } from "./List.style";
 
 const List = () => {
+  console.log("criado outro");
   const [allPokemons, setAllPokemons] = useState<IPokemon[]>([]);
   const [loadMore, setLoadMore] = useState(api);
-
-  const pokearray: any = [];
 
   const getAllPokemons = async () => {
     const pokemonPromises: Promise<IPokemon>[] = [];
@@ -24,27 +23,21 @@ const List = () => {
     setLoadMore(data.next);
 
     function createPokemonObject(result: []) {
-      result.forEach(async function (pokemon: IPokemon) {
+      result.map(async function (pokemon: IPokemon) {
         pokemonPromises.push(
           fetch(getPokemonUrl(pokemon.name)).then((response) => response.json())
         );
       });
       Promise.all(pokemonPromises).then((pokemons: IPokemon[]) => {
         setAllPokemons(pokemons);
-        pokearray.push(...pokemons);
-        console.log(pokearray[0].name);
       });
     }
 
     createPokemonObject(data.results);
   };
 
-  const test = () => {
-    return <div>{"ok"}</div>;
-  };
   return (
     <>
-      {test()}
       <PokemonSection>
         <PokemonList>
           {allPokemons.map((pokemon: IPokemon) => (
@@ -68,7 +61,7 @@ const List = () => {
           ))}
         </PokemonList>
       </PokemonSection>
-      <LoadButton onClick={(e) => getAllPokemons()}>Load More</LoadButton>
+      <LoadButton onClick={() => getAllPokemons()}>Load More</LoadButton>
     </>
   );
 };
