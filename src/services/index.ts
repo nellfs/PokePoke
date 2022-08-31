@@ -1,3 +1,3 @@
-const api = "https://pokeapi.co/api/v2/pokemon?limit=3";
+const api = "https://pokeapi.co/api/v2/pokemon?limit=9";
 
 export default api;

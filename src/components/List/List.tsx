@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import api from "../../services";
 import { IPokemon } from "../Pokemons/types";
@@ -9,6 +9,7 @@ import { PokemonSection, PokemonList } from "./List.style";
 
 const List = () => {
   const [allPokemons, setAllPokemons] = useState<IPokemon[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [loadMore, setLoadMore] = useState(api);
 
   const getAllPokemons = async () => {
@@ -26,16 +27,32 @@ const List = () => {
         pokemonPromises.push(
           fetch(getPokemonUrl(pokemon.name)).then((response) => response.json())
         );
+        setIsLoading(true);
       });
       Promise.all(pokemonPromises).then((pokemons: IPokemon[]) => {
-        setAllPokemons((current) => {
-          return [...current, ...pokemons];
+        setAllPokemons((oldPokemons) => {
+          return [...oldPokemons, ...pokemons];
         });
+        setIsLoading(false);
       });
     }
 
     createPokemonObject(data.results);
   };
+  useEffect(() => {
+    const target = document?.querySelector("#observer");
+
+    if (target != null) {
+      const intersectionObserver = new IntersectionObserver((entries) => {
+        if (entries.some((entry) => entry.isIntersecting) && !isLoading)
+          getAllPokemons();
+      });
+
+      intersectionObserver.observe(target);
+
+      return () => intersectionObserver.disconnect();
+    }
+  });
 
   return (
     <>
@@ -60,9 +77,9 @@ const List = () => {
               ]}
             ></Card>
           ))}
+          <li id="observer"></li>
         </PokemonList>
       </PokemonSection>
-      <LoadButton onClick={() => getAllPokemons()}>Load More</LoadButton>
     </>
   );
 };
