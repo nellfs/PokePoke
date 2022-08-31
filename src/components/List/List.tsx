@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import api from "../../services";
 import { IPokemon } from "../Pokemons/types";
@@ -8,7 +8,6 @@ import { LoadButton } from "../Load/Load.style";
 import { PokemonSection, PokemonList } from "./List.style";
 
 const List = () => {
-  console.log("criado outro");
   const [allPokemons, setAllPokemons] = useState<IPokemon[]>([]);
   const [loadMore, setLoadMore] = useState(api);
 
@@ -29,7 +28,9 @@ const List = () => {
         );
       });
       Promise.all(pokemonPromises).then((pokemons: IPokemon[]) => {
-        setAllPokemons(pokemons);
+        setAllPokemons((current) => {
+          return [...current, ...pokemons];
+        });
       });
     }
 
