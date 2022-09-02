@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
+import { InView, useInView } from "react-intersection-observer";
 
 import api from "../../services";
 import { IPokemon } from "../Pokemons/types";
 import Card from "../Cards/Card";
-
-import { LoadButton } from "../Load/Load.style";
 import { PokemonSection, PokemonList } from "./List.style";
 
 const List = () => {
@@ -21,13 +20,12 @@ const List = () => {
     const data = await res.json();
 
     setLoadMore(data.next);
-
     function createPokemonObject(result: []) {
       result.map(async function (pokemon: IPokemon) {
+        setIsLoading(true);
         pokemonPromises.push(
           fetch(getPokemonUrl(pokemon.name)).then((response) => response.json())
         );
-        setIsLoading(true);
       });
       Promise.all(pokemonPromises).then((pokemons: IPokemon[]) => {
         setAllPokemons((oldPokemons) => {
@@ -39,20 +37,6 @@ const List = () => {
 
     createPokemonObject(data.results);
   };
-  useEffect(() => {
-    const target = document?.querySelector("#observer");
-
-    if (target != null) {
-      const intersectionObserver = new IntersectionObserver((entries) => {
-        if (entries.some((entry) => entry.isIntersecting) && !isLoading)
-          getAllPokemons();
-      });
-
-      intersectionObserver.observe(target);
-
-      return () => intersectionObserver.disconnect();
-    }
-  });
 
   return (
     <>
@@ -77,9 +61,17 @@ const List = () => {
               ]}
             ></Card>
           ))}
-          <li id="observer"></li>
         </PokemonList>
       </PokemonSection>
+      <InView
+        as="div"
+        onChange={(inView) => {
+          if (inView) {
+            console.log("inview");
+            getAllPokemons();
+          }
+        }}
+      ></InView>
     </>
   );
 };
