@@ -5,11 +5,13 @@ import api from "../../services";
 import { IPokemon } from "../Pokemons/types";
 import Card from "../Cards/Card";
 import { PokemonSection, PokemonList } from "./List.style";
+import Load from "../Load/Load";
 
 const List = () => {
   const [allPokemons, setAllPokemons] = useState<IPokemon[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
   const [loadMore, setLoadMore] = useState(api);
+
+  const [loadAll, setLoadAll] = useState(false);
 
   const getAllPokemons = async () => {
     const pokemonPromises: Promise<IPokemon>[] = [];
@@ -18,11 +20,10 @@ const List = () => {
 
     const res = await fetch(loadMore);
     const data = await res.json();
-
     setLoadMore(data.next);
+
     function createPokemonObject(result: []) {
       result.map(async function (pokemon: IPokemon) {
-        setIsLoading(true);
         pokemonPromises.push(
           fetch(getPokemonUrl(pokemon.name)).then((response) => response.json())
         );
@@ -31,7 +32,6 @@ const List = () => {
         setAllPokemons((oldPokemons) => {
           return [...oldPokemons, ...pokemons];
         });
-        setIsLoading(false);
       });
     }
 
@@ -63,13 +63,22 @@ const List = () => {
           ))}
         </PokemonList>
       </PokemonSection>
+      {loadAll ? (
+        false
+      ) : (
+        <Load
+          onClick={() => {
+            setLoadAll(true);
+            getAllPokemons();
+          }}
+        >
+          Load All
+        </Load>
+      )}
       <InView
         as="div"
         onChange={(inView) => {
-          if (inView) {
-            console.log("inview");
-            getAllPokemons();
-          }
+          if (inView && loadAll) getAllPokemons();
         }}
       ></InView>
     </>

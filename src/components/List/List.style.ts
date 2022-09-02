@@ -17,7 +17,7 @@ export const PokemonList = styled.ul`
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 668px) {
     grid-template-columns: repeat(3, 1fr);
   }
 `;
