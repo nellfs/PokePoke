@@ -10,6 +10,7 @@ import {
   PokemonContent,
   PokemonImage,
   PokemonName,
+  PokemonNumber,
   PokemonType,
   PokemonTypeList,
   RightSide,
@@ -51,6 +52,9 @@ const Card = (pokemon: IPokemon) => {
                 ></PokemonImage>
               </RightSide>
             </PokemonContent>
+            <PokemonNumber>
+              {pokemon.id < 10 ? "0" + pokemon.id : pokemon.id}
+            </PokemonNumber>
           </PokemonCard>
         </animated.div>
       )

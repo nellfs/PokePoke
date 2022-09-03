@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const LoadButton = styled.button`
+export const LoadButtonStyle = styled.button`
   display: block;
   margin: 0 auto;
   background-color: ${(props) => props.theme.colors.blue};

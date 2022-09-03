@@ -11,11 +11,16 @@ export const PokemonCard = styled.li<PokemonType>`
   `}
   border-radius: 10px;
   justify-content: left;
+  position: relative;
 
   width: 210px;
   height: 140px;
   @media screen and (max-width: 480px) {
     width: 330px;
+    height: 140px;
+  }
+  @media screen and (max-width: 350px) {
+    width: 260px;
     height: 140px;
   }
 `;
@@ -25,11 +30,9 @@ export const PokeballImage = styled.img`
   z-index: 0;
   width: 98px;
   opacity: 0.3;
-  margin-left: 2px;
-  top: -5px;
+  top: 26px;
   @media screen and (max-width: 480px) {
-    margin-left: 0px;
-    top: -20px;
+    right: 8px;
     width: 110px;
   }
 `;
@@ -37,10 +40,11 @@ export const PokeballImage = styled.img`
 export const PokemonImage = styled.img`
   position: absolute;
   z-index: 1;
-  width: 100px;
-  top: -5px;
+  width: 110px;
+  right: 2px;
+  top: 25px;
   @media screen and (max-width: 480px) {
-    top: -20px;
+    top: 20px;
     width: 120px;
   }
 `;
@@ -52,6 +56,7 @@ export const RightSide = styled.div`
 
 export const LeftSide = styled.div`
   width: 50%;
+  position: relative;
   display: flex;
 `;
 
@@ -60,7 +65,8 @@ export const PokemonContent = styled.div`
 `;
 
 export const PokemonName = styled.h1`
-  display: inline-block;
+  display: flex;
+  position: absolute;
   padding: 6px;
   margin-left: 4px;
   font-style: normal;
@@ -89,7 +95,20 @@ export const PokemonType = styled.h2`
   outline-color: rgba(255, 255, 255, 0.6);
 `;
 
+export const PokemonNumber = styled.h3`
+  position: absolute;
+  display: inline-block;
+  border-radius: 50px;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.8);
+  z-index: 1;
+  right: 10px;
+  bottom: 2px;
+  font-weight: 600;
+  color: white;
+  font-size: 14px;
+`;
+
 export const PokemonTypeList = styled.div`
-  margin-top: 6px;
+  margin-top: 45px;
   width: 50%;
 `;

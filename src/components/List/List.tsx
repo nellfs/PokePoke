@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useInsertionEffect, useState } from "react";
 import { InView, useInView } from "react-intersection-observer";
 
 import api from "../../services";
 import { IPokemon } from "../Pokemons/types";
 import Card from "../Cards/Card";
 import { PokemonSection, PokemonList } from "./List.style";
-import Load from "../Load/Load";
+import LoadButton from "../Load/Load";
 
 const List = () => {
   const [allPokemons, setAllPokemons] = useState<IPokemon[]>([]);
@@ -38,6 +38,12 @@ const List = () => {
     createPokemonObject(data.results);
   };
 
+  useEffect(() => {
+    return () => {
+      getAllPokemons();
+    };
+  }, []);
+
   return (
     <>
       <PokemonSection>
@@ -63,18 +69,15 @@ const List = () => {
           ))}
         </PokemonList>
       </PokemonSection>
-      {loadAll ? (
-        false
-      ) : (
-        <Load
-          onClick={() => {
-            setLoadAll(true);
-            getAllPokemons();
-          }}
-        >
-          Load All
-        </Load>
-      )}
+      <LoadButton
+        visible={!loadAll && allPokemons.length != 0}
+        onClick={() => {
+          setLoadAll(true);
+          getAllPokemons();
+        }}
+      >
+        Load All
+      </LoadButton>
       <InView
         as="div"
         onChange={(inView) => {

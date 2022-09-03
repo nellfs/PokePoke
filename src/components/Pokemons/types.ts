@@ -1,26 +1,6 @@
 import theme from "../../styles/theme";
 
-export type PokemonTypes =
-  | "bug"
-  | "dark"
-  | "dragon"
-  | "electric"
-  | "fairy"
-  | "fighting"
-  | "fire"
-  | "flying"
-  | "ghost"
-  | "grass"
-  | "ground"
-  | "ice"
-  | "normal"
-  | "poison"
-  | "psychic"
-  | "rock"
-  | "steel"
-  | "water";
-
-export type PokemonTypeSingle = {
+export type PokemonTypes = {
   type: {
     name:
       | "bug"
@@ -47,6 +27,6 @@ export type PokemonTypeSingle = {
 export interface IPokemon {
   id: number;
   name: string;
-  types: PokemonTypeSingle[];
+  types: PokemonTypes[];
   image_id?: number;
 }

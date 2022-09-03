@@ -1,15 +1,19 @@
 import React from "react";
-import { LoadButton } from "./Load.style";
+import { LoadButtonStyle } from "./Load.style";
 
-interface LoadProps {
+interface LoadButtonProps {
   children: React.ReactNode;
+  visible: boolean;
   onClick: () => void;
 }
 
-const Load = (props: LoadProps) => {
+const LoadButton = (props: LoadButtonProps) => {
+  if (!props.visible) return <div></div>;
   return (
-    <LoadButton onClick={() => props.onClick()}>{props.children}</LoadButton>
+    <LoadButtonStyle onClick={() => props.onClick()}>
+      {props.children}
+    </LoadButtonStyle>
   );
 };
 
-export default Load;
+export default LoadButton;
