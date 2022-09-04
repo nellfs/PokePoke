@@ -99,7 +99,7 @@ export const PokemonNumber = styled.h3`
   position: absolute;
   display: inline-block;
   border-radius: 50px;
-  text-shadow: 2px 2px rgba(0, 0, 0, 0.8);
+  text-shadow: 1.5px 1.5px rgba(0, 0, 0, 0.2);
   z-index: 1;
   right: 10px;
   bottom: 2px;

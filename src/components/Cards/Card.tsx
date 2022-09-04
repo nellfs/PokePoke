@@ -53,7 +53,7 @@ const Card = (pokemon: IPokemon) => {
               </RightSide>
             </PokemonContent>
             <PokemonNumber>
-              {pokemon.id < 10 ? "0" + pokemon.id : pokemon.id}
+              #{pokemon.id < 10 ? "0" + pokemon.id : pokemon.id}
             </PokemonNumber>
           </PokemonCard>
         </animated.div>

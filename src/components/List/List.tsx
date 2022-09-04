@@ -1,5 +1,5 @@
-import { useEffect, useInsertionEffect, useState } from "react";
-import { InView, useInView } from "react-intersection-observer";
+import { useState } from "react";
+import { InView } from "react-intersection-observer";
 
 import api from "../../services";
 import { IPokemon } from "../Pokemons/types";
@@ -9,9 +9,13 @@ import LoadButton from "../Load/Load";
 
 const List = () => {
   const [allPokemons, setAllPokemons] = useState<IPokemon[]>([]);
-  const [loadMore, setLoadMore] = useState(api);
+  const [loadMore, setLoadMore] = useState(api.api_value);
+  const [onMax, setOnMax] = useState(false);
 
   const [loadAll, setLoadAll] = useState(false);
+
+  const [next_offset, setNextOffset] = useState(api.api_limit);
+  let [next_limit, setNextLimit] = useState(api.api_limit);
 
   const getAllPokemons = async () => {
     const pokemonPromises: Promise<IPokemon>[] = [];
@@ -20,9 +24,17 @@ const List = () => {
 
     const res = await fetch(loadMore);
     const data = await res.json();
-    setLoadMore(data.next);
+
+    setNextOffset((oldOffset) => oldOffset + next_limit);
+    setLoadMore(
+      `https://pokeapi.co/api/v2/pokemon?offset=${next_offset}&limit=${next_limit}`
+    );
 
     function createPokemonObject(result: []) {
+      if (allPokemons.length >= api.api_maxvalue) {
+        setOnMax(true);
+        return;
+      }
       result.map(async function (pokemon: IPokemon) {
         pokemonPromises.push(
           fetch(getPokemonUrl(pokemon.name)).then((response) => response.json())
@@ -37,12 +49,6 @@ const List = () => {
 
     createPokemonObject(data.results);
   };
-
-  useEffect(() => {
-    return () => {
-      getAllPokemons();
-    };
-  }, []);
 
   return (
     <>
@@ -70,7 +76,7 @@ const List = () => {
         </PokemonList>
       </PokemonSection>
       <LoadButton
-        visible={!loadAll && allPokemons.length != 0}
+        visible={!loadAll}
         onClick={() => {
           setLoadAll(true);
           getAllPokemons();
@@ -81,7 +87,9 @@ const List = () => {
       <InView
         as="div"
         onChange={(inView) => {
-          if (inView && loadAll) getAllPokemons();
+          if (inView && loadAll && !onMax) {
+            getAllPokemons();
+          }
         }}
       ></InView>
     </>
