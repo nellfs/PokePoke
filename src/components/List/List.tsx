@@ -15,7 +15,7 @@ const List = () => {
   const [loadAll, setLoadAll] = useState(false);
 
   const [next_offset, setNextOffset] = useState(api.api_limit);
-  let [next_limit, setNextLimit] = useState(api.api_limit);
+  const [next_limit, setNextLimit] = useState(api.api_limit);
 
   const getAllPokemons = async () => {
     const pokemonPromises: Promise<IPokemon>[] = [];
