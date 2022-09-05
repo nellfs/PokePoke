@@ -42,7 +42,10 @@ const List = () => {
       });
       Promise.all(pokemonPromises).then((pokemons: IPokemon[]) => {
         setAllPokemons((oldPokemons) => {
-          return [...oldPokemons, ...pokemons];
+          return [
+            ...oldPokemons,
+            ...pokemons.filter((pokemon) => pokemon.id <= api.api_maxvalue),
+          ];
         });
       });
     }
