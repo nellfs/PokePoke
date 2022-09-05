@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { StrictMode, useEffect, useState } from "react";
 import { InView } from "react-intersection-observer";
 
 import api from "../../services";
@@ -9,39 +9,37 @@ import LoadButton from "../Load/Load";
 
 const List = () => {
   const [allPokemons, setAllPokemons] = useState<IPokemon[]>([]);
-  const [loadMore, setLoadMore] = useState(api.api_value);
+  const [pokemonChunk, setPokemonChunk] = useState(api.api_value);
+  const [isLoading, setIsLoading] = useState(false);
   const [onMax, setOnMax] = useState(false);
-
   const [loadAll, setLoadAll] = useState(false);
-
-  const [next_offset, setNextOffset] = useState(api.api_limit);
-  const [next_limit, setNextLimit] = useState(api.api_limit);
 
   const getAllPokemons = async () => {
     const pokemonPromises: Promise<IPokemon>[] = [];
     const getPokemonUrl = (pokemon_name: string) =>
       `https://pokeapi.co/api/v2/pokemon/${pokemon_name}`;
-
-    const res = await fetch(loadMore);
+    const res = await fetch(pokemonChunk);
     const data = await res.json();
 
-    setNextOffset((oldOffset) => oldOffset + next_limit);
-    setLoadMore(
-      `https://pokeapi.co/api/v2/pokemon?offset=${next_offset}&limit=${next_limit}`
-    );
-
+    setPokemonChunk(data.next);
+    setIsLoading(true);
     function createPokemonObject(result: []) {
       if (allPokemons.length >= api.api_maxvalue) {
         setOnMax(true);
         return;
       }
       result.map(async function (pokemon: IPokemon) {
-        pokemonPromises.push(
-          fetch(getPokemonUrl(pokemon.name)).then((response) => response.json())
-        );
+        if (!isLoading) {
+          pokemonPromises.push(
+            fetch(getPokemonUrl(pokemon.name)).then((response) =>
+              response.json()
+            )
+          );
+        }
       });
       Promise.all(pokemonPromises).then((pokemons: IPokemon[]) => {
         setAllPokemons((oldPokemons) => {
+          setIsLoading(false);
           return [
             ...oldPokemons,
             ...pokemons.filter((pokemon) => pokemon.id <= api.api_maxvalue),
@@ -49,12 +47,11 @@ const List = () => {
         });
       });
     }
-
     createPokemonObject(data.results);
   };
 
   return (
-    <>
+    <div>
       <PokemonSection>
         <PokemonList>
           {allPokemons.map((pokemon: IPokemon) => (
@@ -95,7 +92,7 @@ const List = () => {
           }
         }}
       ></InView>
-    </>
+    </div>
   );
 };
 
