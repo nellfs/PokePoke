@@ -58,12 +58,6 @@ const List = () => {
             });
           }
         });
-        // setAllPokemons((oldPokemons) => {
-        //   return [
-        //     ...oldPokemons,
-        //     ...pokemons.filter((pokemon) => pokemon.id <= api.api_maxvalue),
-        //   ];
-        // });
       });
     }
     createPokemonObject(data.results);
