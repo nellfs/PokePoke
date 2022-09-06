@@ -10,7 +10,6 @@ import LoadButton from "../Load/Load";
 const List = () => {
   const [allPokemons, setAllPokemons] = useState<IPokemon[]>([]);
   const [pokemonChunk, setPokemonChunk] = useState(api.api_value);
-  const [isLoading, setIsLoading] = useState(false);
   const [onMax, setOnMax] = useState(false);
   const [loadAll, setLoadAll] = useState(false);
 
@@ -22,29 +21,49 @@ const List = () => {
     const data = await res.json();
 
     setPokemonChunk(data.next);
-    setIsLoading(true);
     function createPokemonObject(result: []) {
       if (allPokemons.length >= api.api_maxvalue) {
         setOnMax(true);
         return;
       }
       result.map(async function (pokemon: IPokemon) {
-        if (!isLoading) {
-          pokemonPromises.push(
-            fetch(getPokemonUrl(pokemon.name)).then((response) =>
-              response.json()
-            )
-          );
-        }
+        const pokemonPromise = fetch(getPokemonUrl(pokemon.name)).then(
+          (response) => response.json()
+        );
+
+        pokemonPromises.push(pokemonPromise);
+        // setAllPokemons((oldPokemons) => {
+        //   return [...oldPokemons, pokemonObject ]
+        // })
       });
       Promise.all(pokemonPromises).then((pokemons: IPokemon[]) => {
-        setAllPokemons((oldPokemons) => {
-          setIsLoading(false);
-          return [
-            ...oldPokemons,
-            ...pokemons.filter((pokemon) => pokemon.id <= api.api_maxvalue),
-          ];
+        pokemons.map((pokemon: IPokemon) => {
+          const pokemonObject: IPokemon = {
+            id: pokemon.id,
+            name: pokemon.name,
+            types: [
+              {
+                type: {
+                  name: pokemon.types[0].type.name,
+                },
+              },
+              {
+                type: {
+                  name: pokemon.types[1]?.type.name,
+                },
+              },
+            ],
+          };
+          setAllPokemons((oldPokemons) => {
+            return [...oldPokemons, pokemonObject];
+          });
         });
+        // setAllPokemons((oldPokemons) => {
+        //   return [
+        //     ...oldPokemons,
+        //     ...pokemons.filter((pokemon) => pokemon.id <= api.api_maxvalue),
+        //   ];
+        // });
       });
     }
     createPokemonObject(data.results);
