@@ -32,31 +32,31 @@ const List = () => {
         );
 
         pokemonPromises.push(pokemonPromise);
-        // setAllPokemons((oldPokemons) => {
-        //   return [...oldPokemons, pokemonObject ]
-        // })
       });
       Promise.all(pokemonPromises).then((pokemons: IPokemon[]) => {
         pokemons.map((pokemon: IPokemon) => {
-          const pokemonObject: IPokemon = {
-            id: pokemon.id,
-            name: pokemon.name,
-            types: [
-              {
-                type: {
-                  name: pokemon.types[0].type.name,
+          if (pokemon.id <= 898) {
+            const pokemonObject: IPokemon = {
+              id: pokemon.id,
+              name: pokemon.name,
+              types: [
+                {
+                  type: {
+                    name: pokemon.types[0].type.name,
+                  },
                 },
-              },
-              {
-                type: {
-                  name: pokemon.types[1]?.type.name,
+                {
+                  type: {
+                    name: pokemon.types[1]?.type.name,
+                  },
                 },
-              },
-            ],
-          };
-          setAllPokemons((oldPokemons) => {
-            return [...oldPokemons, pokemonObject];
-          });
+              ],
+            };
+
+            setAllPokemons((oldPokemons) => {
+              return [...oldPokemons, pokemonObject];
+            });
+          }
         });
         // setAllPokemons((oldPokemons) => {
         //   return [
