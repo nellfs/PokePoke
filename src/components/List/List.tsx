@@ -1,4 +1,4 @@
-import { StrictMode, useEffect, useState } from "react";
+import { StrictMode, useEffect, useRef, useState } from "react";
 import { InView } from "react-intersection-observer";
 
 import api from "../../services";
@@ -12,6 +12,8 @@ const List = () => {
   const [pokemonChunk, setPokemonChunk] = useState(api.api_value);
   const [onMax, setOnMax] = useState(false);
   const [loadAll, setLoadAll] = useState(false);
+
+  const loadedFirstChunk = useRef(true);
 
   const getAllPokemons = async () => {
     const pokemonPromises: Promise<IPokemon>[] = [];
@@ -35,33 +37,39 @@ const List = () => {
       });
       Promise.all(pokemonPromises).then((pokemons: IPokemon[]) => {
         pokemons.map((pokemon: IPokemon) => {
-          if (pokemon.id <= 898) {
-            const pokemonObject: IPokemon = {
-              id: pokemon.id,
-              name: pokemon.name,
-              types: [
-                {
-                  type: {
-                    name: pokemon.types[0].type.name,
-                  },
+          if (pokemon.id > api.api_maxvalue) return;
+          const pokemonObject: IPokemon = {
+            id: pokemon.id,
+            name: pokemon.name,
+            types: [
+              {
+                type: {
+                  name: pokemon.types[0].type.name,
                 },
-                {
-                  type: {
-                    name: pokemon.types[1]?.type.name,
-                  },
+              },
+              {
+                type: {
+                  name: pokemon.types[1]?.type.name,
                 },
-              ],
-            };
+              },
+            ],
+          };
 
-            setAllPokemons((oldPokemons) => {
-              return [...oldPokemons, pokemonObject];
-            });
-          }
+          setAllPokemons((oldPokemons) => {
+            return [...oldPokemons, pokemonObject];
+          });
         });
       });
     }
     createPokemonObject(data.results);
   };
+
+  useEffect(() => {
+    if (loadedFirstChunk.current) {
+      loadedFirstChunk.current = false;
+      getAllPokemons();
+    }
+  });
 
   return (
     <div>

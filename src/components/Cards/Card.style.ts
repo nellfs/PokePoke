@@ -12,6 +12,7 @@ export const PokemonCard = styled.li<PokemonType>`
   border-radius: 10px;
   justify-content: left;
   position: relative;
+  cursor: pointer;
 
   width: 210px;
   height: 140px;
