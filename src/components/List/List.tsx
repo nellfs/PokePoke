@@ -80,18 +80,7 @@ const List = () => {
               key={pokemon.id}
               id={pokemon.id}
               name={pokemon.name}
-              types={[
-                {
-                  type: {
-                    name: pokemon.types[0].type.name,
-                  },
-                },
-                {
-                  type: {
-                    name: pokemon.types[1]?.type.name,
-                  },
-                },
-              ]}
+              types={pokemon.types}
             ></Card>
           ))}
         </PokemonList>
