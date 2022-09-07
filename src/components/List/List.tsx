@@ -29,11 +29,9 @@ const List = () => {
         return;
       }
       result.map(async function (pokemon: IPokemon) {
-        const pokemonPromise = fetch(getPokemonUrl(pokemon.name)).then(
-          (response) => response.json()
+        pokemonPromises.push(
+          fetch(getPokemonUrl(pokemon.name)).then((response) => response.json())
         );
-
-        pokemonPromises.push(pokemonPromise);
       });
       Promise.all(pokemonPromises).then((pokemons: IPokemon[]) => {
         pokemons.map((pokemon: IPokemon) => {
