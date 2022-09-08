@@ -40,7 +40,7 @@ const PokemonCard = (pokemon: IPokemon) => {
     (styles, item) =>
       item && (
         <animated.div style={styles}>
-          <Link to={`${pokemon.name}`}>
+          <Link to={`${pokemon.id}`}>
             <PokemonCardStyle color_type={pokemon.types[0].type.name}>
               <PokemonName>{pokemon.name}</PokemonName>
               <PokemonContent>

@@ -1,7 +1,7 @@
 import List from "../../components/List/List";
 
-const Home = () => {
+const PokemonsList = () => {
   return <List></List>;
 };
 
-export default Home;
+export default PokemonsList;

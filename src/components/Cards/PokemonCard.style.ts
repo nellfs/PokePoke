@@ -66,6 +66,7 @@ export const PokemonContent = styled.div`
 `;
 
 export const PokemonName = styled.h1`
+  font-weight: 600;
   display: flex;
   position: absolute;
   padding: 6px;
