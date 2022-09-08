@@ -4,6 +4,7 @@ export default {
     background: "#fff",
     outline_card: "#adadad",
     blue: "#4585fa",
+    red: "#f64541",
     pokemon_types: {
       bug: "#8bb973",
       dark: "#3c3c50",

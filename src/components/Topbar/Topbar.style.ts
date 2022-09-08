@@ -12,5 +12,5 @@ export const TopBarStyle = styled.div`
   font-family: "Roboto", sans-serif;
   font-weight: 600;
   position: relative;
-  background-color: ${(props) => props.theme.colors.blue};
+  background-color: ${(props) => props.theme.colors.red};
 `;

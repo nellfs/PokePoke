@@ -9,7 +9,6 @@ const GlobalStyle = createGlobalStyle`
   width: 8px;
 }
 
-
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.3);
