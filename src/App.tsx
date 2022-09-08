@@ -1,5 +1,10 @@
 import { ThemeProvider } from "styled-components";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
 import theme from "./styles/theme";
 import GlobalStyle from "./styles/Global";
@@ -11,7 +16,8 @@ function App() {
       <GlobalStyle />
       <Router>
         <Routes>
-          <Route path="/" element={<Home></Home>}></Route>
+          <Route path="/" element={<Home />} />
+          <Route path="*" element={<Navigate to="/"></Navigate>} />
         </Routes>
       </Router>
     </ThemeProvider>

@@ -5,7 +5,7 @@ interface PokemonType {
   color_type: keyof typeof import("../../styles/theme")["default"]["colors"]["pokemon_types"];
 }
 
-export const PokemonCard = styled.li<PokemonType>`
+export const PokemonCardStyle = styled.li<PokemonType>`
   ${({ theme, color_type }) => css`
     background: ${theme.colors.pokemon_types[color_type]}; //<-
   `}

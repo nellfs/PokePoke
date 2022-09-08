@@ -1,9 +1,9 @@
-import { StrictMode, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { InView } from "react-intersection-observer";
 
 import api from "../../services";
 import { IPokemon } from "../Pokemons/types";
-import Card from "../Cards/Card";
+import PokemonCard from "../Cards/PokemonCard";
 import { PokemonSection, PokemonList } from "./List.style";
 import LoadButton from "../Load/Load";
 
@@ -23,6 +23,7 @@ const List = () => {
     const data = await res.json();
 
     setPokemonChunk(data.next);
+
     function createPokemonObject(result: []) {
       if (allPokemons.length >= api.api_maxvalue) {
         setOnMax(true);
@@ -74,12 +75,12 @@ const List = () => {
       <PokemonSection>
         <PokemonList>
           {allPokemons.map((pokemon: IPokemon) => (
-            <Card
+            <PokemonCard
               key={pokemon.id}
               id={pokemon.id}
               name={pokemon.name}
               types={pokemon.types}
-            ></Card>
+            />
           ))}
         </PokemonList>
       </PokemonSection>
@@ -99,7 +100,7 @@ const List = () => {
             getAllPokemons();
           }
         }}
-      ></InView>
+      />
     </div>
   );
 };
