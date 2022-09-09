@@ -10,13 +10,13 @@ import theme from "./styles/theme";
 import GlobalStyle from "./styles/Global";
 import PokemonsList from "./pages/PokemonsList";
 import Home from "./pages/Home";
-import TopBar from "./components/Topbar/Topbar";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <TopBar></TopBar>
+      <Navbar />
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />

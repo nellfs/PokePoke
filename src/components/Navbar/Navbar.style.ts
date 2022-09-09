@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const TopBarStyle = styled.div`
+export const NavbarStyle = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
