@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { InView } from "react-intersection-observer";
 
 import api from "../../services";
-import { IPokemon } from "../Pokemons/types";
+import { IPokemon } from "../../types/Pokemons/types";
 import PokemonCard from "../Cards/PokemonCard";
 import { PokemonSection, PokemonList } from "./List.style";
 import LoadButton from "../Load/Load";

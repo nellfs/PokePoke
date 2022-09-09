@@ -14,3 +14,11 @@ export const NavbarStyle = styled.div`
   position: relative;
   background-color: ${(props) => props.theme.colors.red};
 `;
+
+export const NavbarItems = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  padding: 10px;
+`;

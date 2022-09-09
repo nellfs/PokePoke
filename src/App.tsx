@@ -6,7 +6,9 @@ import {
   Navigate,
 } from "react-router-dom";
 
-import theme from "./styles/theme";
+import light from "./styles/themes/light";
+import dark from "./styles/themes/dark";
+
 import GlobalStyle from "./styles/Global";
 import PokemonsList from "./pages/PokemonsList";
 import Home from "./pages/Home";
@@ -14,7 +16,7 @@ import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={dark}>
       <GlobalStyle />
       <Navbar />
       <Router>

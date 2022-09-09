@@ -1,13 +1,13 @@
 import styled, { css } from "styled-components";
-import theme from "../../styles/theme";
-
+import theme from "../../styles/themes/light";
+import type_colors from "../../styles/type_colors";
 interface PokemonType {
-  color_type: keyof typeof import("../../styles/theme")["default"]["colors"]["pokemon_types"];
+  color_type: keyof typeof import("../../styles/type_colors")["default"]["pokemon_types"];
 }
 
 export const PokemonCardStyle = styled.li<PokemonType>`
   ${({ theme, color_type }) => css`
-    background: ${theme.colors.pokemon_types[color_type]}; //<-
+    background: ${type_colors.pokemon_types[color_type]};
   `}
   border-radius: 10px;
   justify-content: left;

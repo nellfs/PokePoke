@@ -1,10 +1,20 @@
-import { NavbarStyle } from "./Navbar.style";
+import { NavbarItems, NavbarStyle } from "./Navbar.style";
+import { SunIcon } from "@heroicons/react/24/solid";
 
 const NavBar = () => {
+  const divStyle = {
+    height: "20px",
+    cursor: "pointer",
+  };
   return (
     <NavbarStyle>
-      <img src="https://www.pngkey.com/detail/u2q8o0i1a9q8e6o0_master-ball-master-ball-pokemon-icon/"></img>
-      <div>Poke-What</div>
+      <NavbarItems>
+        <div>Poke-What</div>
+        <SunIcon
+          onClick={() => console.log("hello world")}
+          style={divStyle}
+        ></SunIcon>
+      </NavbarItems>
     </NavbarStyle>
   );
 };
