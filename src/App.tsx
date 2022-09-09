@@ -13,11 +13,20 @@ import GlobalStyle from "./styles/Global";
 import PokemonsList from "./pages/PokemonsList";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar/Navbar";
+import ThemeSwitcher from "./components/ThemeSwitcher/ThemeSwitcher";
+import { useState } from "react";
 
 function App() {
+  const [theme, setTheme] = useState(dark);
+
+  const changeTheme = () => {
+    setTheme(theme.title === "light" ? dark : light);
+  };
+
   return (
-    <ThemeProvider theme={dark}>
+    <ThemeProvider theme={theme}>
       <GlobalStyle />
+      <ThemeSwitcher theme={theme.title} onClick={changeTheme}></ThemeSwitcher>
       <Navbar />
       <Router>
         <Routes>

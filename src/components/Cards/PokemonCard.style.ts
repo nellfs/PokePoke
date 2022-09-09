@@ -1,17 +1,16 @@
 import styled, { css } from "styled-components";
-import theme from "../../styles/themes/light";
 import type_colors from "../../styles/type_colors";
 interface PokemonType {
   color_type: keyof typeof import("../../styles/type_colors")["default"]["pokemon_types"];
 }
 
 export const PokemonCardStyle = styled.li<PokemonType>`
-  ${({ theme, color_type }) => css`
+  ${({ color_type }) => css`
     background: ${type_colors.pokemon_types[color_type]};
-  `}
+  `};
+  position: relative;
   border-radius: 10px;
   justify-content: left;
-  position: relative;
   cursor: pointer;
 
   width: 210px;
@@ -73,7 +72,7 @@ export const PokemonName = styled.h1`
   margin-left: 4px;
   font-style: normal;
   font-size: 18px;
-  color: ${theme.colors.background};
+  color: white;
   text-transform: capitalize;
   @media screen and (max-width: 480px) {
     font-size: 20px;

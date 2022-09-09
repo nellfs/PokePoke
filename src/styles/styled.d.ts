@@ -1,12 +1,7 @@
 import "styled-components";
-
-import theme from "./themes/light";
+import theme from "./themes/light"; //Using the default theme
 
 declare module "styled-components" {
-  export interface DefaultTheme {
-    title: string;
-    colors: {
-      background: string;
-    };
-  }
+  type ThemeType = typeof theme;
+  export interface DefaultTheme extends ThemeType {}
 }

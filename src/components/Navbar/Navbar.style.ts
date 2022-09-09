@@ -1,18 +1,17 @@
-import styled from "styled-components";
+import styled, { isStyledComponent } from "styled-components";
 
 export const NavbarStyle = styled.div`
   width: 100%;
   display: flex;
-  align-items: center;
   color: white;
   margin-right: auto;
   margin-left: auto;
-  overflow-x: hidden;
+  overflow: none;
   height: 40px;
   font-family: "Roboto", sans-serif;
   font-weight: 600;
   position: relative;
-  background-color: ${(props) => props.theme.colors.red};
+  background-color: ${(props) => props.theme.colors.navbar_color};
 `;
 
 export const NavbarItems = styled.div`
@@ -21,4 +20,21 @@ export const NavbarItems = styled.div`
   justify-content: space-between;
 
   padding: 10px;
+`;
+
+export const RightSide = styled.div`
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+`;
+
+export const GitHubRedirection = styled.a`
+  display: flex;
+`;
+
+export const GitHubIcon = styled.img`
+  background-color: white;
+  height: 22px;
+  padding: 2px;
+  border-radius: 100px;
 `;

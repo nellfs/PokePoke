@@ -2,6 +2,9 @@ export default {
   title: "light",
 
   colors: {
-    background: "#fff",
+    text_default_color: "#000",
+    background: "#fbfbfb",
+    navbar_color: "#d0d7de",
+    outline: "#fff",
   },
 };
