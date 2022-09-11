@@ -1,10 +1,18 @@
-interface IThemeSwitcher {
-  theme: string;
-  onClick(): void;
-}
+import { useContext } from "react";
+import { CustomThemeContext } from "../../context/CustomThemeProvider";
 
-const ThemeSwitcher = (props: IThemeSwitcher) => {
-  return <div onClick={props.onClick}>{props.theme}</div>;
+const ThemeSwitcher = () => {
+  const { theme, toggleTheme } = useContext(CustomThemeContext);
+
+  return (
+    <div
+      onClick={() => {
+        toggleTheme();
+      }}
+    >
+      {theme.title}
+    </div>
+  );
 };
 
 export default ThemeSwitcher;

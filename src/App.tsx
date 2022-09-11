@@ -1,4 +1,4 @@
-import { ThemeProvider } from "styled-components";
+import { ThemeContext, ThemeProvider } from "styled-components";
 import {
   BrowserRouter as Router,
   Routes,
@@ -14,19 +14,26 @@ import PokemonsList from "./pages/PokemonsList";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar/Navbar";
 import ThemeSwitcher from "./components/ThemeSwitcher/ThemeSwitcher";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import {
+  CustomThemeContext,
+  CustomThemeProvider,
+} from "./context/CustomThemeProvider";
 
 function App() {
-  const [theme, setTheme] = useState(dark);
+  const [theme, setTheme] = useState(light);
 
   const changeTheme = () => {
     setTheme(theme.title === "light" ? dark : light);
   };
 
+  const themes = () => {
+    return useContext(CustomThemeContext).theme;
+  };
+
   return (
-    <ThemeProvider theme={theme}>
+    <CustomThemeProvider>
       <GlobalStyle />
-      <ThemeSwitcher theme={theme.title} onClick={changeTheme}></ThemeSwitcher>
       <Navbar />
       <Router>
         <Routes>
@@ -36,7 +43,7 @@ function App() {
           {/* <Route path="*" element={<Navigate to="/"></Navigate>} /> */}
         </Routes>
       </Router>
-    </ThemeProvider>
+    </CustomThemeProvider>
   );
 }
 

@@ -20,6 +20,7 @@ const NavBar = () => {
       <NavbarItems>
         <div>hello</div>
         <RightSide>
+          <ThemeSwitcher></ThemeSwitcher>
           <GitHubRedirection href="https://github.com/nellfs">
             <GitHubIcon src={github_icon_black} />
           </GitHubRedirection>
