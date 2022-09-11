@@ -4,7 +4,9 @@ export default {
   colors: {
     text_default_color: '#000',
     background: '#eef8ff',
-    navbar_color: '#c3d2dc',
+    navbar_color: '#c1cfd8',
     outline: '#cddee9',
+    primary: '#c54116',
+    secundary: '#f9693a',
   },
 };

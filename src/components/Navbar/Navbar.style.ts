@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const NavbarStyle = styled.div`
+  z-index: 1;
   width: 100%;
   display: flex;
   color: white;
@@ -12,7 +13,6 @@ export const NavbarStyle = styled.div`
   font-weight: 600;
   position: relative;
   background-color: ${(props) => props.theme.colors.navbar_color};
-  border-bottom: 1px solid ${(props) => props.theme.colors.outline};
 `;
 
 export const NavbarItems = styled.div`

@@ -22,7 +22,7 @@ body{
     margin: 0;
     padding: 0;
     background-color: ${(props) => props.theme.colors.background};
-    transition: all 0.40s linear;
+    /* transition: all 0.40s linear; */
 }
 `;
 
