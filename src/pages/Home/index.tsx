@@ -1,5 +1,7 @@
+import { Background } from './index.styled';
+
 const Home = () => {
-  return <div style={{ color: 'red' }}>home </div>;
+  return <Background />;
 };
 
 export default Home;

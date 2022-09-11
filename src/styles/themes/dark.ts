@@ -5,6 +5,6 @@ export default {
     text_default_color: '#fff',
     background: '#23282d',
     navbar_color: '#2c353c',
-    outline: '#999',
+    outline: '#485965',
   },
 };

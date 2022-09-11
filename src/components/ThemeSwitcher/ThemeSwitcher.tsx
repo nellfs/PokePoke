@@ -10,7 +10,7 @@ const ThemeSwitcher = () => {
         toggleTheme();
       }}
     >
-      {theme.title}
+      change color
     </div>
   );
 };

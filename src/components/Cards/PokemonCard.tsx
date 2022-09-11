@@ -1,6 +1,6 @@
 import { useTransition, animated } from 'react-spring';
 
-import { IPokemon } from '../Pokemons/types';
+import { IPokemon } from '../../types/Pokemons/types';
 import pokeballBackground from '../../assets/img/pokeballcard_bg.png';
 
 import {

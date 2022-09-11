@@ -10,11 +10,6 @@ import github_icon_black from '../../assets/img/github/GitHub-Mark-120px-plus-da
 import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
 
 const NavBar = () => {
-  // const divStyle = {
-  //   height: '28px',
-  //   cursor: 'pointer',
-  //   color: 'orange',
-  // };
   return (
     <NavbarStyle>
       <NavbarItems>

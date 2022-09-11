@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const LoadButtonStyle = styled.button`
   display: block;
   margin: 0 auto;
-  background-color: ${(props) => props.theme.colors.blue};
+  background-color: red;
   padding: 8px 60px;
   border: none;
   font-size: 16px;
