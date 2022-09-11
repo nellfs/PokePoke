@@ -1,7 +1,7 @@
-import { useTransition, animated } from "react-spring";
+import { useTransition, animated } from 'react-spring';
 
-import { IPokemon } from "../Pokemons/types";
-import pokeballBackground from "../../assets/img/pokeballcard_bg.png";
+import { IPokemon } from '../Pokemons/types';
+import pokeballBackground from '../../assets/img/pokeballcard_bg.png';
 
 import {
   LeftSide,
@@ -14,9 +14,9 @@ import {
   PokemonType,
   PokemonTypeList,
   RightSide,
-} from "./PokemonCard.style";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+} from './PokemonCard.style';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const PokemonCard = (pokemon: IPokemon) => {
   const [isVisible, setVisible] = useState(false);
@@ -56,7 +56,7 @@ const PokemonCard = (pokemon: IPokemon) => {
                 </RightSide>
               </PokemonContent>
               <PokemonNumber>
-                #{pokemon.id < 10 ? "0" + pokemon.id : pokemon.id}
+                #{pokemon.id < 10 ? '0' + pokemon.id : pokemon.id}
               </PokemonNumber>
             </PokemonCardStyle>
           </Link>

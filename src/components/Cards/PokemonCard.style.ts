@@ -1,7 +1,7 @@
-import styled, { css } from "styled-components";
-import type_colors from "../../styles/type_colors";
+import styled, { css } from 'styled-components';
+import type_colors from '../../styles/type_colors';
 interface PokemonType {
-  color_type: keyof typeof import("../../styles/type_colors")["default"]["pokemon_types"];
+  color_type: keyof typeof import('../../styles/type_colors')['default']['pokemon_types'];
 }
 
 export const PokemonCardStyle = styled.li<PokemonType>`

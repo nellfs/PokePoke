@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const LoadButtonStyle = styled.button`
   display: block;
@@ -10,7 +10,7 @@ export const LoadButtonStyle = styled.button`
   font-weight: 500;
   color: white;
   cursor: pointer;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   border-radius: 50px;
   margin-bottom: 10px;
 `;

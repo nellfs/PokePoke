@@ -1,4 +1,4 @@
-import List from "../../components/List/List";
+import List from '../../components/List/List';
 
 const PokemonsList = () => {
   return <List></List>;

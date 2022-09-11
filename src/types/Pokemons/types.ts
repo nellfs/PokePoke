@@ -1,26 +1,24 @@
-import theme from "../../styles/theme";
-
 export type PokemonTypes = {
   type: {
     name:
-      | "bug"
-      | "dark"
-      | "dragon"
-      | "electric"
-      | "fairy"
-      | "fighting"
-      | "fire"
-      | "flying"
-      | "ghost"
-      | "grass"
-      | "ground"
-      | "ice"
-      | "normal"
-      | "poison"
-      | "psychic"
-      | "rock"
-      | "steel"
-      | "water";
+      | 'bug'
+      | 'dark'
+      | 'dragon'
+      | 'electric'
+      | 'fairy'
+      | 'fighting'
+      | 'fire'
+      | 'flying'
+      | 'ghost'
+      | 'grass'
+      | 'ground'
+      | 'ice'
+      | 'normal'
+      | 'poison'
+      | 'psychic'
+      | 'rock'
+      | 'steel'
+      | 'water';
   };
 };
 

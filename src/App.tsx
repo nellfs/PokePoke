@@ -1,28 +1,12 @@
-import { ThemeContext, ThemeProvider } from "styled-components";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import light from "./styles/themes/light";
-import dark from "./styles/themes/dark";
-
-import GlobalStyle from "./styles/Global";
-import PokemonsList from "./pages/PokemonsList";
-import Home from "./pages/Home";
-import Navbar from "./components/Navbar/Navbar";
-import { useState } from "react";
-import { CustomThemeProvider } from "./context/CustomThemeProvider";
+import GlobalStyle from './styles/Global';
+import PokemonsList from './pages/PokemonsList';
+import Home from './pages/Home';
+import Navbar from './components/Navbar/Navbar';
+import { CustomThemeProvider } from './context/CustomThemeProvider';
 
 function App() {
-  const [theme, setTheme] = useState(light);
-
-  const changeTheme = () => {
-    setTheme(theme.title === "light" ? dark : light);
-  };
-
   return (
     <CustomThemeProvider>
       <GlobalStyle />

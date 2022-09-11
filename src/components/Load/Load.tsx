@@ -1,5 +1,5 @@
-import React from "react";
-import { LoadButtonStyle } from "./Load.style";
+import React from 'react';
+import { LoadButtonStyle } from './Load.style';
 
 interface LoadButtonProps {
   children: React.ReactNode;

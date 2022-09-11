@@ -1,8 +1,8 @@
-import React, { createContext, ReactNode, useCallback, useState } from "react";
-import { DefaultTheme, ThemeProvider } from "styled-components";
+import React, { createContext, ReactNode, useCallback, useState } from 'react';
+import { DefaultTheme, ThemeProvider } from 'styled-components';
 
-import dark from "../styles/themes/dark";
-import light from "../styles/themes/light";
+import dark from '../styles/themes/dark';
+import light from '../styles/themes/light';
 
 export interface IThemeContextData {
   theme: DefaultTheme;

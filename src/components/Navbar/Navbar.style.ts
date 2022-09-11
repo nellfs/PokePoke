@@ -1,4 +1,4 @@
-import styled, { isStyledComponent } from "styled-components";
+import styled from 'styled-components';
 
 export const NavbarStyle = styled.div`
   width: 100%;
@@ -8,7 +8,7 @@ export const NavbarStyle = styled.div`
   margin-left: auto;
   overflow: none;
   height: 40px;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 600;
   position: relative;
   background-color: ${(props) => props.theme.colors.navbar_color};
