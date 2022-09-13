@@ -5,7 +5,11 @@ interface IButton {
 }
 
 const Button = (props: IButton) => {
-  return <StyledButton>{props.text}</StyledButton>;
+  return (
+    <StyledButton height={40} color={'blue'}>
+      {props.text}
+    </StyledButton>
+  );
 };
 
 export default Button;

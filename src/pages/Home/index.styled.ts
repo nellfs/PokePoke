@@ -23,7 +23,7 @@ export const Card = styled.div`
 
 export const Text = styled.h1`
   font-weight: 300;
-
+  font-family: 'Roboto';
   color: ${(props) => props.theme.colors.text_default_color};
   display: flex;
   margin: auto;
