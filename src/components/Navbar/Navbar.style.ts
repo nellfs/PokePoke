@@ -13,7 +13,6 @@ export const NavbarStyle = styled.div`
   font-weight: 600;
   position: relative;
   background-color: ${(props) => props.theme.colors.navbar_color};
-  border-bottom: 1px solid ${(props) => props.theme.colors.outline};
 `;
 
 export const NavbarItems = styled.div`
