@@ -2,13 +2,13 @@ import styled from 'styled-components';
 
 interface Props {
   height: number;
-  color: string;
+  color: 'primary' | 'secundary';
 }
 
 export const StyledButton = styled.button<Props>`
   display: block;
   margin: 0 auto;
-  background-color: ${(p) => p.color};
+  background-color: ${(p) => p.theme.colors[p.color]};
   padding: ${(p) => p.height}px 40px;
   border: none;
   font-size: 16px;

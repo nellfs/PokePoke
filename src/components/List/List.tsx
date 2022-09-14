@@ -6,6 +6,7 @@ import { IPokemon } from '../../types/Pokemons/types';
 import PokemonCard from '../Cards/PokemonCard';
 import { PokemonSection, PokemonList } from './List.style';
 import Button from '../Button/Button';
+import { ThemeProvider } from 'styled-components';
 
 const List = () => {
   const [allPokemons, setAllPokemons] = useState<IPokemon[]>([]);
@@ -86,7 +87,7 @@ const List = () => {
       </PokemonSection>
       <Button
         height={8}
-        color="red"
+        color="primary"
         visible={!loadAll}
         onClick={() => {
           setLoadAll(true);
@@ -95,7 +96,6 @@ const List = () => {
       >
         Load All
       </Button>
-
       <InView
         as="div"
         onChange={(inView) => {
