@@ -5,7 +5,7 @@ import api from '../../services';
 import { IPokemon } from '../../types/Pokemons/types';
 import PokemonCard from '../Cards/PokemonCard';
 import { PokemonSection, PokemonList } from './List.style';
-import LoadButton from '../Load/Load';
+import Button from '../Button/Button';
 
 const List = () => {
   const [allPokemons, setAllPokemons] = useState<IPokemon[]>([]);
@@ -84,7 +84,9 @@ const List = () => {
           ))}
         </PokemonList>
       </PokemonSection>
-      <LoadButton
+      <Button
+        height={8}
+        color="red"
         visible={!loadAll}
         onClick={() => {
           setLoadAll(true);
@@ -92,7 +94,8 @@ const List = () => {
         }}
       >
         Load All
-      </LoadButton>
+      </Button>
+
       <InView
         as="div"
         onChange={(inView) => {

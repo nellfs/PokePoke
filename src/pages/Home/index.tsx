@@ -1,12 +1,14 @@
-import Button from '../../components/Button/Button';
-import { Background, Text, Card } from './index.styled';
+import { Background, Text, Card, ButtonPack } from './index.styled';
 
 const Home = () => {
   return (
     <Background>
+      <Text>Project made for study purposes</Text>
       <Card>
-        <Text>Project made for study purposes</Text>
-        <Button text="Source Code"></Button>
+        <ButtonPack>
+          {/* <Button text="Source Code"></Button>
+          <Button text="Go to pokemons"></Button> */}
+        </ButtonPack>
       </Card>
     </Background>
   );

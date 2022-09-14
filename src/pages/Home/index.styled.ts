@@ -16,9 +16,13 @@ export const Card = styled.div`
   flex-direction: column;
   /* background-color: red; */
   width: 80%;
-  height: 50px;
+  height: 15vh;
   display: flex;
   margin: auto;
+`;
+
+export const ButtonPack = styled.div`
+  display: inline-flex;
 `;
 
 export const Text = styled.h1`

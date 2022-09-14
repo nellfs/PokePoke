@@ -6,18 +6,16 @@ interface Props {
 }
 
 export const StyledButton = styled.button<Props>`
-  display: inline-block;
-  height: ${(p) => p.height}px;
-  margin: auto;
+  display: block;
+  margin: 0 auto;
   background-color: ${(p) => p.color};
+  padding: ${(p) => p.height}px 40px;
+  border: none;
   font-size: 16px;
-  padding: 6px;
-  font-family: 'Poppins';
-  border-radius: 10px;
-  border-style: none;
+  font-weight: 500;
   color: white;
   cursor: pointer;
-  text-align: center;
-  list-style: none;
-  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 50px;
+  margin-bottom: 10px;
 `;

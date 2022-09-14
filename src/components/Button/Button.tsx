@@ -1,13 +1,19 @@
+import { ReactNode } from 'react';
 import { StyledButton } from './Button.style';
 
 interface IButton {
-  text: string;
+  children: ReactNode;
+  height: number;
+  color: string;
+  visible: boolean;
+  onClick(): void;
 }
 
-const Button = (props: IButton) => {
+const Button = ({ children, height, color, visible, onClick }: IButton) => {
+  if (!visible) return <div></div>;
   return (
-    <StyledButton height={40} color={'blue'}>
-      {props.text}
+    <StyledButton height={height} color={color} onClick={onClick}>
+      {children}
     </StyledButton>
   );
 };
