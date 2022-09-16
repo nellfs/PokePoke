@@ -6,15 +6,15 @@ import { IPokemon } from '../../types/Pokemons/types';
 import PokemonCard from '../Cards/PokemonCard';
 import { PokemonSection, PokemonList } from './List.style';
 import Button from '../Button/Button';
-import { ThemeProvider } from 'styled-components';
 
 const List = () => {
   const [allPokemons, setAllPokemons] = useState<IPokemon[]>([]);
   const [pokemonChunk, setPokemonChunk] = useState(api.api_value);
   const [onMax, setOnMax] = useState(false);
-  const [loadAll, setLoadAll] = useState(false);
 
-  const loadedFirstChunk = useRef(true);
+  const [canShowButton, setCanShowButton] = useState(false);
+
+  const loadingFirstChunk = useRef(false);
 
   const getAllPokemons = async () => {
     const pokemonPromises: Promise<IPokemon>[] = [];
@@ -65,9 +65,13 @@ const List = () => {
   };
 
   useEffect(() => {
-    if (loadedFirstChunk.current) {
-      loadedFirstChunk.current = false;
+    if (!loadingFirstChunk.current) {
+      loadingFirstChunk.current = true;
       getAllPokemons();
+
+      setTimeout(() => {
+        setCanShowButton(true);
+      }, 200);
     }
   });
 
@@ -88,10 +92,12 @@ const List = () => {
       <Button
         height={8}
         color="primary"
-        visible={!loadAll}
+        visible={canShowButton}
         onClick={() => {
-          setLoadAll(true);
           getAllPokemons();
+          setTimeout(() => {
+            setCanShowButton(false);
+          }, 200);
         }}
       >
         Load All
@@ -99,7 +105,7 @@ const List = () => {
       <InView
         as="div"
         onChange={(inView) => {
-          if (inView && loadAll && !onMax) {
+          if (inView && !canShowButton && !onMax) {
             getAllPokemons();
           }
         }}
