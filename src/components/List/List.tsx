@@ -11,6 +11,7 @@ const List = () => {
   const [allPokemons, setAllPokemons] = useState<IPokemon[]>([]);
   const [pokemonChunk, setPokemonChunk] = useState(api.api_value);
   const [onMax, setOnMax] = useState(false);
+  const [loadAll, setLoadAll] = useState(false);
 
   const [canShowButton, setCanShowButton] = useState(false);
 
@@ -95,6 +96,7 @@ const List = () => {
         visible={canShowButton}
         onClick={() => {
           getAllPokemons();
+          setLoadAll(true);
           setTimeout(() => {
             setCanShowButton(false);
           }, 200);
@@ -105,7 +107,7 @@ const List = () => {
       <InView
         as="div"
         onChange={(inView) => {
-          if (inView && !canShowButton && !onMax) {
+          if (inView && !canShowButton && loadAll && !onMax) {
             getAllPokemons();
           }
         }}
