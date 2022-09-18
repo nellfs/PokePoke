@@ -8,12 +8,11 @@ const Home = () => {
       <Card>
         <Text>Project made for study purposes</Text>
         <ButtonPack>
-          <Button height={8} color={'primary'} visible={true}>
+          <Button height={8} color={'secundary'} visible={true}>
             Source-Code
           </Button>
-
           <Link to={'/pokemons'} style={{ textDecoration: 'none' }}>
-            <Button height={8} color={'primary'} visible={true}>
+            <Button height={8} color={'secundary'} visible={true}>
               See Pokemons
             </Button>
           </Link>

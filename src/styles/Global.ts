@@ -21,8 +21,8 @@ body{
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
+    transition: background-color 0.2s ease;
     background-color: ${(props) => props.theme.colors.background};
-    /* transition: all 0.40s linear; */
 }
 `;
 
