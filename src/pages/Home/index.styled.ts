@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 
 export const Background = styled.div`
+  position: absolute;
   top: 0;
   z-index: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   background-color: ${(props) => props.theme.colors.navbar_color};
   overflow-y: hidden;
@@ -14,15 +16,17 @@ export const Background = styled.div`
 export const Card = styled.div`
   display: flex;
   flex-direction: column;
-  /* background-color: red; */
-  width: 80%;
-  height: 15vh;
+  width: 100%;
+  height: 20vh;
   display: flex;
   margin: auto;
 `;
 
 export const ButtonPack = styled.div`
-  display: inline-flex;
+  gap: 10px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
 `;
 
 export const Text = styled.h1`

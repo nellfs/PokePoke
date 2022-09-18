@@ -7,7 +7,7 @@ interface Props {
 
 export const StyledButton = styled.button<Props>`
   display: block;
-  margin: 0 auto;
+  margin: auto;
   background-color: ${(p) => p.theme.colors[p.color]};
   padding: ${(p) => p.height}px 40px;
   border: none;

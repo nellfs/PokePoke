@@ -6,7 +6,7 @@ interface IButton {
   height: number;
   color: 'primary' | 'secundary';
   visible: boolean;
-  onClick(): void;
+  onClick?: () => void;
 }
 
 const Button = ({ children, height, color, visible, onClick }: IButton) => {
