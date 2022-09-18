@@ -24,7 +24,7 @@ export const NavbarItems = styled.div`
 
 export const RightSide = styled.div`
   display: inline-flex;
-  gap: 8px;
+  /* gap: 8px; */
   align-items: center;
 `;
 
@@ -34,7 +34,7 @@ export const GitHubRedirection = styled.a`
 
 export const GitHubIcon = styled.img`
   background-color: white;
-  height: 26px;
+  height: 28px;
   padding: 1px;
   border-radius: 100px;
 `;

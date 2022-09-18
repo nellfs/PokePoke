@@ -13,9 +13,9 @@ const ThemeSwitcher = () => {
         toggleTheme();
       }}
     >
-      <SwitchCircle theme_title={theme.title}></SwitchCircle>
-      <MoonIcon style={{ color: 'yellow', height: '24px' }} />
-      <SunIcon style={{ color: 'orange', height: '24px' }} />
+      <SwitchCircle theme_title={theme.title} />
+      <MoonIcon style={{ color: 'yellow', height: '22px' }} />
+      <SunIcon style={{ color: 'orange', height: '22px' }} />
     </ThemeSwitcherButton>
   );
 };

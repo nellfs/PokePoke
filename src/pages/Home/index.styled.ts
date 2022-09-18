@@ -7,6 +7,7 @@ export const Background = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: all 0.2s ease;
   background-color: ${(props) => props.theme.colors.navbar_color};
   overflow-y: hidden;
   width: 100%;

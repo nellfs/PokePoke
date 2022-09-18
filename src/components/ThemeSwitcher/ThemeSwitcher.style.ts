@@ -6,10 +6,11 @@ interface ThemeSwitcherProps {
 }
 
 export const ThemeSwitcherButton = styled.button`
-  background-color: ${solid_colors.colors.black};
+  background-color: ${(p) => p.theme.colors.background};
   border-radius: 100px;
   border-style: none;
   display: inline-flex;
+  border: 1px solid ${(p) => p.theme.colors.outline};
   cursor: pointer;
   position: relative;
   align-items: center;
@@ -27,11 +28,11 @@ export const ThemeSwitcherButton = styled.button`
 export const SwitchCircle = styled.div<ThemeSwitcherProps>`
   user-select: none;
   position: absolute;
-  background: ${solid_colors.colors.white};
-  width: 24px;
-  height: 24px;
+  background: ${(p) => p.theme.colors.outline};
+  width: 22px;
+  height: 22px;
   border-radius: 100px;
-  transition: transform 0.2s linear;
+  transition: transform 0.3s ease;
   transform: translateX(
     ${({ theme_title }) => (theme_title == 'light' ? 'px' : '28px')}
   );
