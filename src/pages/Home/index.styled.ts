@@ -18,7 +18,7 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 20vh;
+  gap: 20px;
   display: flex;
   margin: auto;
 `;
@@ -27,6 +27,12 @@ export const ButtonPack = styled.div`
   gap: 10px;
   margin: auto;
   display: flex;
+  flex-direction: row;
+  @media only screen and (max-width: 481px) {
+    gap: 0px;
+    flex-direction: column;
+  }
+
   justify-content: center;
 `;
 

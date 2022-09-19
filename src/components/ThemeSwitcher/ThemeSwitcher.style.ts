@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import solid_colors from '../../styles/solid_colors';
-
 interface ThemeSwitcherProps {
   theme_title: string;
 }
