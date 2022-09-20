@@ -9,7 +9,7 @@ export const PokemonCardStyle = styled.li<PokemonType>`
     background: ${type_colors.pokemon_types[color_type]};
   `};
   position: relative;
-  border-radius: 10px;
+  border-radius: 12px;
   justify-content: left;
   cursor: pointer;
 
