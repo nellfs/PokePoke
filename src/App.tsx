@@ -14,8 +14,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/pokemons" element={<PokemonsList />} />
-          <Route path="/:pokemonId" element={<div>hello</div>}></Route>
+          <Route path="pokemons" element={<PokemonsList />} />
+          <Route path="pokemons/:pokemonId" element={<div>hello</div>}></Route>
           {/* <Route path="*" element={<Navigate to="/"></Navigate>} /> */}
         </Routes>
       </Router>

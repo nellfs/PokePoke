@@ -4,11 +4,14 @@ const GlobalStyle = createGlobalStyle`
 * {
     margin: 0;
     padding: 0;
+
+
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
+  border-radius: 10px;
   background: rgba(0, 0, 0, 0.3);
 }
 

@@ -12,7 +12,6 @@ export const PokemonCardStyle = styled.li<PokemonType>`
   border-radius: 12px;
   justify-content: left;
   cursor: pointer;
-
   width: 210px;
   height: 140px;
   @media screen and (max-width: 480px) {
