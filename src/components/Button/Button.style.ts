@@ -1,21 +1,24 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-interface Props {
+export interface ButtonStyleProps {
   height: number;
-  color: 'primary' | 'secundary';
+  color: keyof typeof import('../../styles/themes/light')['default']['colors'];
 }
 
-export const StyledButton = styled.button<Props>`
+export const StyledButton = styled.button<ButtonStyleProps>`
+  ${({ color }) => css`
+    background-color: ${(p) => p.theme.colors[color]};
+  `};
+
   display: block;
   margin: auto;
-  background-color: ${(p) => p.theme.colors.background};
   padding: ${(p) => p.height}px 40px;
   border: none;
   font-size: 16px;
   font-weight: 500;
   color: ${(p) => p.theme.colors.text_default_color};
   cursor: pointer;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Roboto', sans-serif;
   border-radius: 50px;
   margin-bottom: 10px;
   border: 1px solid ${(p) => p.theme.colors.outline};

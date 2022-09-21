@@ -12,12 +12,12 @@ const Home = () => {
         <Text>Project made for study purposes</Text>
         <ButtonPack>
           <a href="https://github.com/nellfs/pokewhat" style={noTextDecoration}>
-            <Button height={8} color={'secundary'} visible={true}>
+            <Button height={8} color={'background'} visible={true}>
               Source-Code
             </Button>
           </a>
           <Link to={'/pokemons'} style={noTextDecoration}>
-            <Button height={8} color={'secundary'} visible={true}>
+            <Button height={8} color={'background'} visible={true}>
               See Pokemons
             </Button>
           </Link>
