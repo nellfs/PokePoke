@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import GlobalStyle from './styles/Global';
 import PokemonsList from './pages/PokemonsList';
+import PokemonPage from './pages/PokemonPage';
 import Home from './pages/Home';
 import Navbar from './components/Navbar/Navbar';
 import { CustomThemeProvider } from './context/CustomThemeProvider';
@@ -14,8 +15,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="pokemons" element={<PokemonsList />} />
-          <Route path="pokemons/:pokemonId" element={<div>hello</div>}></Route>
+          <Route path="pokemons" element={<PokemonsList />}></Route>
+          <Route path="pokemons/:pokemonId" element={<PokemonPage />} />
           {/* <Route path="*" element={<Navigate to="/"></Navigate>} /> */}
         </Routes>
       </Router>

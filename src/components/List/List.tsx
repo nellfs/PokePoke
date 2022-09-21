@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { InView } from 'react-intersection-observer';
 
-import api from '../../services';
+import api, { PokeClient } from '../../services';
 import { IPokemon } from '../../types/Pokemons/types';
 import PokemonCard from '../Cards/PokemonCard';
 import { PokemonSection, PokemonList } from './List.style';
@@ -13,17 +13,16 @@ const List = () => {
   const [onMax, setOnMax] = useState(false);
   const [loadAll, setLoadAll] = useState(false);
 
+  const pokeClient = new PokeClient();
+
   const [canShowButton, setCanShowButton] = useState(false);
 
   const loadingFirstChunk = useRef(false);
 
   const getAllPokemons = async () => {
     const pokemonPromises: Promise<IPokemon>[] = [];
-    const getPokemonUrl = (pokemon_name: string) =>
-      `https://pokeapi.co/api/v2/pokemon/${pokemon_name}`;
     const res = await fetch(pokemonChunk);
     const data = await res.json();
-
     setPokemonChunk(data.next);
 
     function createPokemonObject(result: []) {
@@ -33,7 +32,9 @@ const List = () => {
       }
       result.map(async function (pokemon: IPokemon) {
         pokemonPromises.push(
-          fetch(getPokemonUrl(pokemon.name)).then((response) => response.json())
+          fetch(pokeClient.getPokemonUrl(pokemon.name)).then((response) =>
+            response.json()
+          )
         );
       });
       Promise.all(pokemonPromises).then((pokemons: IPokemon[]) => {
