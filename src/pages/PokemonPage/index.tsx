@@ -19,7 +19,7 @@ const PokemonPage = () => {
   return (
     <Text>
       <h1>{pokemon?.name}</h1>
-      <h2>weight {(pokemon?.weight / 4.536).toFixed(1)}</h2>
+      {/* <h2>weight {(pokemon?.weight / 4.536).toFixed(1)}</h2> */}
       <img
         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`}
       ></img>

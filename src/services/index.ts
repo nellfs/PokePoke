@@ -2,9 +2,6 @@ const api_limit = 18;
 const api_value = `https://pokeapi.co/api/v2/pokemon?limit=${api_limit}`;
 const api_maxvalue = 898;
 
-interface Pokemon {
-  pokemon: string | number;
-}
 export class PokeClient {
   getPokemonUrl = (pokemon: string | number) => {
     return `https://pokeapi.co/api/v2/pokemon/${pokemon}`;

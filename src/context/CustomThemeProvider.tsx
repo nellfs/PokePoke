@@ -24,7 +24,7 @@ export const CustomThemeProvider: React.FC<ThemeProviderProps> = ({
   const [theme, setTheme] = usePersistentState('theme', light);
 
   const toggleTheme = useCallback(() => {
-    setTheme(theme === light ? dark : light);
+    setTheme(theme.title === 'light' ? dark : light);
   }, [theme]);
 
   return (

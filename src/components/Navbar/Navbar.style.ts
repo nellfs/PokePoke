@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 
+export const NavBarSpace = styled.div`
+  height: 40px;
+`;
+
 export const NavbarStyle = styled.div`
-  z-index: 1;
+  top: 0;
+  z-index: 10;
   width: 100%;
   display: flex;
   color: white;
@@ -11,7 +16,7 @@ export const NavbarStyle = styled.div`
   height: 40px;
   font-family: 'Roboto', sans-serif;
   font-weight: 600;
-  position: relative;
+  position: fixed;
   background-color: ${(props) => props.theme.colors.navbar_color};
   border-bottom: 1px solid ${(p) => p.theme.colors.outline};
 `;
