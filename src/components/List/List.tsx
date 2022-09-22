@@ -93,7 +93,7 @@ const List = () => {
       </PokemonSection>
       <Button
         height={8}
-        color="background"
+        color="navbar_color"
         visible={canShowButton}
         onClick={() => {
           getAllPokemons();
