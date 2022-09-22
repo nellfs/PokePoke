@@ -6,8 +6,6 @@ import {
   NavbarStyle,
   RightSide,
 } from './Navbar.style';
-// import { SunIcon } from '@heroicons/react/24/solid';
-// import github_icon_black from '../../assets/img/github/GitHub-Mark-120px-plus-dark.png';
 import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
 
 const NavBar = () => {

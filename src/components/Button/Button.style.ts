@@ -19,6 +19,7 @@ export const StyledButton = styled.button<ButtonStyleProps>`
   color: ${(p) => p.theme.colors.text_default_color};
   cursor: pointer;
   font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   border-radius: 50px;
   margin-bottom: 10px;
   border: 1px solid ${(p) => p.theme.colors.outline};

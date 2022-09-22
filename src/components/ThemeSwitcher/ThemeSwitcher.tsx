@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { CustomThemeContext } from '../../context/CustomThemeProvider';
 import { SwitchCircle, ThemeSwitcherButton } from './ThemeSwitcher.style';
 
-import { MoonIcon, SunIcon } from '@heroicons/react/20/solid';
+import { MoonIcon, SunIcon } from '@heroicons/react/24/outline';
 
 const ThemeSwitcher = () => {
   const { toggleTheme, theme } = useContext(CustomThemeContext);
@@ -14,8 +14,8 @@ const ThemeSwitcher = () => {
       }}
     >
       <SwitchCircle theme_title={theme.title} />
-      <MoonIcon style={{ color: 'yellow', height: '22px' }} />
-      <SunIcon style={{ color: 'orange', height: '22px' }} />
+      <SunIcon style={{ color: 'white', height: '22px' }} />
+      <MoonIcon style={{ color: 'black', height: '22px' }} />
     </ThemeSwitcherButton>
   );
 };
