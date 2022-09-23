@@ -1,7 +1,13 @@
 import List from '../../components/List/List';
+import SearchBar from '../../components/SearchBar/SearchBar';
 
 const PokemonsList = () => {
-  return <List></List>;
+  return (
+    <>
+      <SearchBar></SearchBar>
+      <List></List>
+    </>
+  );
 };
 
 export default PokemonsList;
