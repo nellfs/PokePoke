@@ -27,9 +27,14 @@ const PokemonCard = (pokemon: IPokemon) => {
     delay: 200,
   });
 
+  const changeVisible = useMemo(() => setVisible(true), [isVisible]);
+
   useEffect(() => {
-    console.log('hello');
-    setVisible(true);
+    return () => {
+      if (!isVisible) {
+        changeVisible;
+      }
+    };
   }, [isVisible]);
 
   const renderTypes = pokemon.types.map((n, i) => {
