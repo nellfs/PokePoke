@@ -14,7 +14,6 @@ const GlobalStyle = createGlobalStyle`
   border-radius: 10px;
   background: rgba(0, 0, 0, 0.2);
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 0, 0, 0.3);
 }

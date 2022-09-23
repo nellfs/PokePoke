@@ -15,7 +15,7 @@ import {
   PokemonTypeList,
   RightSide,
 } from './PokemonCard.style';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const PokemonCard = (pokemon: IPokemon) => {
@@ -28,8 +28,9 @@ const PokemonCard = (pokemon: IPokemon) => {
   });
 
   useEffect(() => {
+    console.log('hello');
     setVisible(true);
-  }, []);
+  }, [isVisible]);
 
   const renderTypes = pokemon.types.map((n, i) => {
     if (pokemon.types[i].type.name != undefined)
