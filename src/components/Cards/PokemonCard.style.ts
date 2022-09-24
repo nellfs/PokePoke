@@ -14,6 +14,9 @@ export const PokemonCardStyle = styled.li<PokemonType>`
   cursor: pointer;
   width: 210px;
   height: 140px;
+  overflow: hidden;
+  /* outline: 1px solid rgba(255, 255, 255, 0.4);
+  outline-offset: -1px; */
   @media screen and (max-width: 480px) {
     width: 330px;
     height: 140px;
@@ -28,6 +31,7 @@ export const PokeballImage = styled.img`
   position: absolute;
   z-index: 0;
   width: 120px;
+  object-fit: contain;
   opacity: 0.3;
   top: 30px;
   @media screen and (max-width: 480px) {

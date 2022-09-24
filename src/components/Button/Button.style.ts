@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import solid_colors from '../../styles/solid_colors';
 
 export interface ButtonStyleProps {
   height: number;
@@ -16,11 +17,10 @@ export const StyledButton = styled.button<ButtonStyleProps>`
   border: none;
   font-size: 16px;
   font-weight: 500;
-  color: ${(p) => p.theme.colors.text_default_color};
+  color: ${solid_colors.colors.white};
   cursor: pointer;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   border-radius: 50px;
   margin-bottom: 10px;
-  border: 1px solid ${(p) => p.theme.colors.outline};
 `;

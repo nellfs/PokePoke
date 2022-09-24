@@ -37,7 +37,7 @@ export const ButtonPack = styled.div`
 `;
 
 export const Text = styled.h1`
-  font-weight: 300;
+  font-weight: 600;
   font-family: 'Roboto';
   color: ${(props) => props.theme.colors.text_default_color};
   display: flex;

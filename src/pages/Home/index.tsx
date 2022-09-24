@@ -9,18 +9,23 @@ const Home = () => {
   return (
     <Background>
       <Card>
-        <Text>Project made for study purposes</Text>
+        <Text>A pokémon project made for study purposes</Text>
         <ButtonPack>
+          <Link to={'/pokemons'} style={noTextDecoration}>
+            <Button height={8} color={'background'} visible={true}>
+              Pokémons
+            </Button>
+          </Link>
+          <Link to={'/barries'} style={noTextDecoration}>
+            <Button height={8} color={'background'} visible={true}>
+              Berries
+            </Button>
+          </Link>
           <a href="https://github.com/nellfs/pokewhat" style={noTextDecoration}>
             <Button height={8} color={'background'} visible={true}>
               Source-Code
             </Button>
           </a>
-          <Link to={'/pokemons'} style={noTextDecoration}>
-            <Button height={8} color={'background'} visible={true}>
-              See Pokemons
-            </Button>
-          </Link>
         </ButtonPack>
       </Card>
     </Background>
