@@ -27,12 +27,12 @@ export const PokemonCardStyle = styled.li<PokemonType>`
 export const PokeballImage = styled.img`
   position: absolute;
   z-index: 0;
-  width: 98px;
+  width: 120px;
   opacity: 0.3;
-  top: 26px;
+  top: 30px;
   @media screen and (max-width: 480px) {
-    right: 8px;
-    width: 110px;
+    right: -10px;
+    width: 130px;
   }
 `;
 
@@ -67,6 +67,7 @@ export const PokemonName = styled.h1`
   font-weight: 600;
   display: flex;
   position: absolute;
+  margin-top: 4px;
   padding: 6px;
   margin-left: 4px;
   font-style: normal;
@@ -89,17 +90,18 @@ export const PokemonType = styled.h2`
   border-radius: 50px;
   font-weight: 500;
   color: white;
+  background-color: rgba(255, 255, 255, 0.15);
   font-size: 15px;
   outline-style: solid;
   outline-width: 1px;
-  outline-color: rgba(255, 255, 255, 0.6);
+  outline-color: rgba(255, 255, 255, 0.7);
 `;
 
 export const PokemonNumber = styled.h3`
   position: absolute;
   display: inline-block;
   border-radius: 50px;
-  text-shadow: 1.5px 1.5px rgba(0, 0, 0, 0.3);
+  text-shadow: 0px 1.5px rgba(0, 0, 0, 0.2);
   z-index: 1;
   right: 10px;
   bottom: 2px;
