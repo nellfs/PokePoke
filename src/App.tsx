@@ -4,14 +4,12 @@ import GlobalStyle from './styles/Global';
 import PokemonsList from './pages/PokemonsList';
 import PokemonPage from './pages/PokemonPage';
 import Home from './pages/Home';
-import Navbar from './components/Navbar/Navbar';
 import { CustomThemeProvider } from './context/CustomThemeProvider';
 
 function App() {
   return (
     <CustomThemeProvider>
       <GlobalStyle />
-      <Navbar />
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />

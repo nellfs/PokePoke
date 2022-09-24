@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import solid_colors from '../../styles/solid_colors';
+import pokeballBackground from '../../assets/img/mini_pokeball_bg.png';
 
 export const Background = styled.div`
   position: absolute;
@@ -7,18 +9,44 @@ export const Background = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: all 0.2s ease;
-  background-color: ${(props) => props.theme.colors.navbar_color};
-  overflow-y: hidden;
+  background: linear-gradient(
+    180deg,
+    rgba(79, 133, 244, 1) 24%,
+    rgba(0, 90, 255, 1) 100%
+  );
+  overflow: hidden;
   width: 100%;
   height: 100vh;
 `;
 
+export const ScrollingImage = styled.div`
+  z-index: 0;
+  position: absolute;
+
+  background: url(${pokeballBackground}) repeat;
+  width: calc(100% + 128px);
+  height: 100vh;
+  animation: slide 1s linear infinite;
+  @keyframes slide {
+    0% {
+      transform: translate(0);
+    }
+    100% {
+      transform: translate(-64px); /* The image width */
+    }
+  }
+`;
+
 export const Card = styled.div`
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  gap: 20px;
+  background: ${solid_colors.colors.white};
+  width: 24rem;
+  height: 24rem;
+  padding: 16px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 24px;
+  border-radius: 24px;
   display: flex;
   margin: auto;
 `;
@@ -39,7 +67,7 @@ export const ButtonPack = styled.div`
 export const Text = styled.h1`
   font-weight: 600;
   font-family: 'Roboto';
-  color: ${(props) => props.theme.colors.text_default_color};
+  color: ${solid_colors.colors.dark};
   display: flex;
   margin: auto;
   font-size: 30px;

@@ -1,6 +1,12 @@
 import { Link } from 'react-router-dom';
 import Button from '../../components/Button/Button';
-import { Background, Text, Card, ButtonPack } from './index.styled';
+import {
+  Background,
+  Text,
+  Card,
+  ButtonPack,
+  ScrollingImage,
+} from './index.styled';
 
 const Home = () => {
   const noTextDecoration = {
@@ -8,22 +14,23 @@ const Home = () => {
   };
   return (
     <Background>
+      <ScrollingImage></ScrollingImage>
       <Card>
-        <Text>A pokémon project made for study purposes</Text>
+        {/* <Text>A pokémon project made for study purposes</Text> */}
         <ButtonPack>
           <Link to={'/pokemons'} style={noTextDecoration}>
-            <Button height={8} color={'background'} visible={true}>
-              Pokémons
+            <Button height={8} color={'red'} visible={true}>
+              p
             </Button>
           </Link>
-          <Link to={'/barries'} style={noTextDecoration}>
-            <Button height={8} color={'background'} visible={true}>
-              Berries
+          <Link to={'/berries'} style={noTextDecoration}>
+            <Button height={8} color={'green'} visible={true}>
+              b
             </Button>
           </Link>
           <a href="https://github.com/nellfs/pokewhat" style={noTextDecoration}>
-            <Button height={8} color={'background'} visible={true}>
-              Source-Code
+            <Button height={8} color={'dark'} visible={true}>
+              s-c
             </Button>
           </a>
         </ButtonPack>

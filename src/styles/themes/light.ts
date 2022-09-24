@@ -7,6 +7,5 @@ export default {
     navbar_color: '#fff',
     outline: '#cad1d9',
     primary: '#dd0d2e',
-    secundary: '#f9693a',
   },
 };

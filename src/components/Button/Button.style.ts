@@ -3,12 +3,12 @@ import solid_colors from '../../styles/solid_colors';
 
 export interface ButtonStyleProps {
   height: number;
-  color: keyof typeof import('../../styles/themes/light')['default']['colors'];
+  color: keyof typeof import('../../styles/solid_colors')['default']['colors'];
 }
 
 export const StyledButton = styled.button<ButtonStyleProps>`
   ${({ color }) => css`
-    background-color: ${(p) => p.theme.colors[color]};
+    background-color: ${solid_colors.colors[color]};
   `};
 
   display: block;
@@ -19,7 +19,7 @@ export const StyledButton = styled.button<ButtonStyleProps>`
   font-weight: 500;
   color: ${solid_colors.colors.white};
   cursor: pointer;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 400;
   border-radius: 50px;
   margin-bottom: 10px;

@@ -4,7 +4,7 @@ import { StyledButton } from './Button.style';
 interface IButton {
   children: ReactNode;
   height: number;
-  color: keyof typeof import('../../styles/themes/light')['default']['colors'];
+  color: keyof typeof import('../../styles/solid_colors')['default']['colors'];
   visible: boolean;
   onClick?: () => void;
 }
