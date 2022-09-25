@@ -20,13 +20,13 @@ export const Background = styled.div`
 `;
 
 export const ScrollingImage = styled.div`
-  z-index: 0;
+  z-index: 1;
   position: absolute;
 
   background: url(${pokeballBackground}) repeat;
   width: calc(100% + 128px);
   height: 100vh;
-  animation: slide 1s linear infinite;
+  animation: slide 2s linear infinite;
   @keyframes slide {
     0% {
       transform: translate(0);
@@ -38,21 +38,20 @@ export const ScrollingImage = styled.div`
 `;
 
 export const Card = styled.div`
-  z-index: 1;
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  background: ${solid_colors.colors.white};
-  width: 24rem;
-  height: 24rem;
+  width: 32rem;
+  height: 28rem;
   padding: 16px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 24px;
-  border-radius: 24px;
+  border-radius: 20px;
   display: flex;
   margin: auto;
 `;
 
 export const ButtonPack = styled.div`
   gap: 10px;
+  width: 100%;
   margin: auto;
   display: flex;
   flex-direction: row;
