@@ -5,11 +5,13 @@ import PokemonsList from './pages/PokemonsList';
 import PokemonPage from './pages/PokemonPage';
 import Home from './pages/Home';
 import { CustomThemeProvider } from './context/CustomThemeProvider';
+import NavBar from './components/Navbar/Navbar';
 
 function App() {
   return (
     <CustomThemeProvider>
       <GlobalStyle />
+      <NavBar />
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />

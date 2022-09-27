@@ -3,15 +3,11 @@ import solid_colors from '../../styles/solid_colors';
 
 export interface ButtonStyleProps {
   height: number;
-  color: keyof typeof import('../../styles/solid_colors')['default']['colors'];
 }
 
 export const StyledButton = styled.button<ButtonStyleProps>`
-  ${({ color }) => css`
-    background-color: ${solid_colors.colors[color]};
-  `};
-
   display: block;
+
   margin: auto;
   padding: ${(p) => p.height}px 40px;
   border: none;
@@ -23,10 +19,12 @@ export const StyledButton = styled.button<ButtonStyleProps>`
   font-weight: 400;
   border-radius: 50px;
   margin-bottom: 10px;
+  background-color: ${solid_colors.colors.blue};
+  transition: 0.3s;
+  outline-offset: -1px;
+  outline: 1px solid rgba(255, 255, 255, 0.3);
 
   &:hover {
-    ${({ color }) => css`
-      background-color: ${solid_colors.colors[color]};
-    `};
+    background-color: ${solid_colors.colors.dark_blue};
   }
 `;

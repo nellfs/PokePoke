@@ -2,7 +2,13 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { PokeClient } from '../../services';
 import { IPokemon } from '../../types/Pokemons/types';
-import { Text } from './index.style';
+import {
+  Background,
+  Card,
+  PokemonImage,
+  PokemonImageCard,
+  PokemonName,
+} from './index.style';
 
 const PokemonPage = () => {
   const { pokemonId } = useParams();
@@ -23,13 +29,20 @@ const PokemonPage = () => {
   }
 
   return (
-    <Text>
-      <h1>{pokemon?.name}</h1>
-      {/* <h2>weight {(pokemon.weight / 4.536).toFixed(1)}</h2> */}
-      <img
-        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`}
-      ></img>
-    </Text>
+    <Background>
+      <Card>
+        {/* <h2>weight {(pokemon.weight / 4.536).toFixed(1)}</h2> */}
+        <PokemonImageCard color_type={'grass'}>
+          <PokemonImage
+            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`}
+          ></PokemonImage>
+        </PokemonImageCard>
+        <PokemonName>
+          <h1>{pokemon?.name}</h1>
+          <h2>#{pokemon?.id}</h2>
+        </PokemonName>
+      </Card>
+    </Background>
   );
 };
 

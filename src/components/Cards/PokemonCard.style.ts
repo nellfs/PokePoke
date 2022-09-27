@@ -95,10 +95,8 @@ export const PokemonType = styled.h2`
   font-weight: 500;
   color: white;
   background-color: rgba(255, 255, 255, 0.15);
+  outline: 1px solid rgba(255, 255, 255, 0.7);
   font-size: 15px;
-  outline-style: solid;
-  outline-width: 1px;
-  outline-color: rgba(255, 255, 255, 0.7);
 `;
 
 export const PokemonNumber = styled.h3`
