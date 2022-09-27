@@ -17,19 +17,18 @@ const Home = () => {
     <Background>
       <ScrollingImage></ScrollingImage>
       <Card>
-        {/* <Text>A pokémon project made for study purposes</Text> */}
+        <Text>A pokémon project made for study purposes</Text>
         <ButtonPack>
-          <SelectorCard color="fire" img="../../src/assets/img/pokeball.png">
-            Pokémons
+          <SelectorCard color="fire" img="../../src/assets/img/cheri.png">
+            Pokémon
           </SelectorCard>
+
           <SelectorCard color="grass" img="../../src/assets/img/cheri.png">
             Berries
           </SelectorCard>
-          <SelectorCard
-            color="dark"
-            img="../../src/assets/img/github/GitHub-Mark-120px-plus-light.png"
-          >
-            Source-Code
+
+          <SelectorCard color="dark" img="../../src/assets/img/cheri.png">
+            Github
           </SelectorCard>
           {/* <Link to={'/pokemons'} style={noTextDecoration}>
             <Button height={8} color={'red'} visible={true}>

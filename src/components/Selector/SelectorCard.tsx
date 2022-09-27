@@ -1,9 +1,5 @@
 import { ReactNode } from 'react';
-import {
-  SelectorCardStyle,
-  SelectorImage,
-  SelectorText,
-} from './SelectorCard.style';
+import { SelectorCardStyle, SelectorText } from './SelectorCard.style';
 
 interface SelectorProps {
   children: ReactNode;
@@ -11,11 +7,10 @@ interface SelectorProps {
   img: string;
 }
 
-const SelectorCard = ({ children, color, img }: SelectorProps) => {
+const SelectorCard = ({ children, color }: SelectorProps) => {
   return (
     <SelectorCardStyle color={color}>
       <SelectorText>{children}</SelectorText>
-      <SelectorImage src={img}></SelectorImage>
     </SelectorCardStyle>
   );
 };

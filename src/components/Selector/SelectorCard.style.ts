@@ -8,20 +8,23 @@ export interface SelectorStyleProps {
 }
 
 export const SelectorCardStyle = styled.div<SelectorStyleProps>`
+  background-color: ${solid_colors.colors.white};
+  outline: 1px solid rgba(255, 255, 255, 0.6);
+  outline-offset: -1px;
   ${({ color }) => css`
     background: ${type_colors.pokemon_types[color]};
   `};
   color: ${solid_colors.colors.white};
   display: flex;
   flex-direction: row;
-  height: 120px;
+  height: 210px;
   width: 120px;
   justify-content: space-between;
   font-weight: 500;
   align-items: center;
   border-radius: 18px;
   overflow: hidden;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 8px 24px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 8px 24px;
 `;
 
 export const SelectorImage = styled.img`
@@ -31,6 +34,6 @@ export const SelectorImage = styled.img`
 `;
 
 export const SelectorText = styled.div`
-  margin-left: 40px;
-  font-size: 30px;
+  margin: auto;
+  font-size: 20px;
 `;

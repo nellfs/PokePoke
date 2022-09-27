@@ -43,30 +43,25 @@ export const Card = styled.div`
   flex-direction: column;
   width: 32rem;
   height: 28rem;
-  padding: 16px;
+  padding: 4px;
   border-radius: 20px;
   display: flex;
   margin: auto;
 `;
 
 export const ButtonPack = styled.div`
-  gap: 10px;
+  gap: 14px;
   width: 100%;
   margin: auto;
   display: flex;
   flex-direction: row;
-  @media only screen and (max-width: 481px) {
-    gap: 0px;
-    flex-direction: column;
-  }
-
   justify-content: center;
 `;
 
 export const Text = styled.h1`
   font-weight: 600;
   font-family: 'Roboto';
-  color: ${solid_colors.colors.dark};
+  color: ${solid_colors.colors.white};
   display: flex;
   margin: auto;
   font-size: 30px;

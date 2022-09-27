@@ -23,4 +23,10 @@ export const StyledButton = styled.button<ButtonStyleProps>`
   font-weight: 400;
   border-radius: 50px;
   margin-bottom: 10px;
+
+  &:hover {
+    ${({ color }) => css`
+      background-color: ${solid_colors.colors[color]};
+    `};
+  }
 `;

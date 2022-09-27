@@ -92,8 +92,8 @@ const List = () => {
         </PokemonList>
       </PokemonSection>
       <Button
-        height={8}
-        color="red"
+        height={5}
+        color="blue"
         visible={canShowButton}
         onClick={() => {
           getAllPokemons();
