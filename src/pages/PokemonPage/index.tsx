@@ -18,7 +18,8 @@ const PokemonPage = () => {
 
   useEffect(() => {
     return () => {
-      pokeClient.getPokemon('pikachu');
+      pokeClient.getEvolutionChain(1);
+      // pokeClient.getPokemon('pikachu');
     };
   }, []);
 

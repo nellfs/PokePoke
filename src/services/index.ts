@@ -2,6 +2,8 @@ const api_limit = 18;
 const api_value = `https://pokeapi.co/api/v2/pokemon?limit=${api_limit}`;
 const api_maxvalue = 898;
 
+type pokemon_data = number | string;
+
 export type Response<T> = {
   status: number;
   error?: string;
@@ -39,11 +41,23 @@ export class PokeClient {
     return this.send(url, options);
   }
 
-  getPokemonUrl = (pokemon: string | number) => {
+  getPokemonUrl = <pokemon_data>(pokemon: pokemon_data) => {
     return `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
   };
 
-  async getPokemon(pokemon: string | number) {
+  async getPokemonSpecies(pokemon: pokemon_data) {
+    const response = await this.get(
+      'https://pokeapi.co/api/v2/pokemon-species/' + pokemon
+    );
+    console.log(response);
+  }
+
+  async getEvolutionChain(pokemon: number) {
+    const response = await this.get('evolution-chain/' + pokemon);
+    console.log(response);
+  }
+
+  async getPokemon(pokemon: pokemon_data) {
     const response = await this.get('pokemon/' + pokemon);
     console.log(response.data);
   }
