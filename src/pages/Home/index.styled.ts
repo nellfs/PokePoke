@@ -1,48 +1,25 @@
 import styled from 'styled-components';
 import solid_colors from '../../styles/solid_colors';
-import pokeballBackground from '../../assets/img/mini_pokeball_bg.png';
 
 export const Background = styled.div`
   position: absolute;
   top: 0;
-  z-index: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   background: linear-gradient(
-    180deg,
-    rgba(79, 133, 244, 1) 24%,
-    rgba(0, 90, 255, 1) 100%
+    0deg,
+    rgba(0, 120, 204, 1) 16%,
+    rgba(109, 203, 255, 1) 100%
   );
   overflow: hidden;
   width: 100%;
   height: 100vh;
-`;
-
-export const ScrollingImage = styled.div`
-  z-index: 1;
-  position: absolute;
-
-  background: url(${pokeballBackground}) repeat;
-  width: calc(100% + 128px);
-  height: 100vh;
-  animation: slide 2s linear infinite;
-  @keyframes slide {
-    0% {
-      transform: translate(0);
-    }
-    100% {
-      transform: translate(-64px); /* The image width */
-    }
-  }
+  display: flex;
 `;
 
 export const Card = styled.div`
-  z-index: 2;
+  font-family: 'Montserrat';
   display: flex;
   flex-direction: column;
-  width: 32rem;
-  height: 28rem;
+  align-items: center;
   padding: 4px;
   border-radius: 20px;
   display: flex;
@@ -50,20 +27,22 @@ export const Card = styled.div`
 `;
 
 export const ButtonPack = styled.div`
-  gap: 14px;
-  width: 100%;
-  margin: auto;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  gap: 10px;
 `;
 
-export const Text = styled.h1`
-  font-weight: 600;
-  font-family: 'Roboto';
+export const Title = styled.h1`
+  font-weight: 800;
   color: ${solid_colors.colors.white};
   display: flex;
-  margin: auto;
-  font-size: 30px;
+  font-size: 3rem;
   text-align: center;
+`;
+
+export const Text = styled.h2`
+  font-size: 16px;
+  color: ${solid_colors.colors.white};
+  font-weight: 500;
+  margin-bottom: 10px;
 `;

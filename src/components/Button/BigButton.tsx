@@ -6,6 +6,7 @@ interface IBigButton {
   children: ReactNode;
   height: number;
   color: keyof typeof import('../../styles/solid_colors')['default']['colors'];
+  textColor: string;
   visible: boolean;
   onClick?: () => void;
 }
@@ -14,6 +15,7 @@ const BigButton = ({
   children,
   height,
   color,
+  textColor,
   visible,
   onClick,
 }: IBigButton) => {
@@ -21,7 +23,7 @@ const BigButton = ({
   return (
     <StyledBigButton height={height} color={color} onClick={onClick}>
       {/* <img src={pokeballImage} height={'100px'}></img> */}
-      <Text>{children}</Text>
+      <Text text_color={textColor}>{children}</Text>
     </StyledBigButton>
   );
 };
