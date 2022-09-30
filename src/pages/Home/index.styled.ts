@@ -4,11 +4,13 @@ import solid_colors from '../../styles/solid_colors';
 export const Background = styled.div`
   position: absolute;
   top: 0;
+
   background: linear-gradient(
     0deg,
-    rgba(0, 120, 204, 1) 16%,
-    rgba(109, 203, 255, 1) 100%
+    rgba(64, 76, 218, 1) 0%,
+    rgba(83, 91, 221, 1) 100%
   );
+
   overflow: hidden;
   width: 100%;
   height: 100vh;
@@ -17,6 +19,7 @@ export const Background = styled.div`
 
 export const Card = styled.div`
   font-family: 'Montserrat';
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,19 +27,24 @@ export const Card = styled.div`
   border-radius: 20px;
   display: flex;
   margin: auto;
+  text-align: center;
 `;
 
 export const ButtonPack = styled.div`
   display: flex;
   flex-direction: row;
   gap: 10px;
+  @media (max-width: 320px) {
+    gap: 0px;
+    flex-direction: column;
+  }
 `;
 
 export const Title = styled.h1`
   font-weight: 800;
   color: ${solid_colors.colors.white};
   display: flex;
-  font-size: 3rem;
+  font-size: calc(32px + 2vw);
   text-align: center;
 `;
 

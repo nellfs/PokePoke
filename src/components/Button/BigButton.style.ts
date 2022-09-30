@@ -13,11 +13,10 @@ export const StyledBigButton = styled.button<ButtonStyleProps>`
   ${({ color }) => css`
     background: ${solid_colors.colors[color]};
   `};
-
   display: flex;
   margin: auto;
   height: ${(p) => p.height}px;
-  padding: 0px 30px;
+  padding: 0px 24px;
   border: none;
   color: ${solid_colors.colors.white};
   cursor: pointer;

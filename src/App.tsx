@@ -11,7 +11,7 @@ function App() {
   return (
     <CustomThemeProvider>
       <GlobalStyle />
-      {/* <NavBar /> */}
+      <NavBar />
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />

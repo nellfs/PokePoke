@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import BigButton from '../../components/Button/BigButton';
-import Button from '../../components/Button/Button';
 import { Background, Text, Card, ButtonPack, Title } from './index.styled';
 
 const Home = () => {
@@ -18,43 +17,32 @@ const Home = () => {
             height: '1px',
             width: '120px',
             marginBottom: '20px',
+            opacity: '.3',
           }}
         ></div>
         <ButtonPack>
-          <BigButton
-            height={42}
-            color={'white'}
-            textColor={'#198bd7'}
-            visible={true}
-          >
-            See Pokémons
-          </BigButton>
-          <BigButton
-            height={42}
-            color={'dark'}
-            textColor={'#ffff'}
-            visible={true}
-          >
-            Source Code
-          </BigButton>
-        </ButtonPack>
-        {/* <ButtonPack>
           <Link to={'/pokemons'} style={noTextDecoration}>
-            <Button height={8} visible={true}>
-              p
-            </Button>
+            <BigButton
+              height={42}
+              color={'white'}
+              textColor={'#4852db'}
+              visible={true}
+            >
+              See Pokémons
+            </BigButton>
           </Link>
-          <Link to={'/berries'} style={noTextDecoration}>
-            <Button height={8} visible={true}>
-              b
-            </Button>
-          </Link>
+
           <a href="https://github.com/nellfs/pokewhat" style={noTextDecoration}>
-            <Button height={8} visible={true}>
-              s-c
-            </Button>
+            <BigButton
+              height={42}
+              color={'dark'}
+              textColor={'#ffff'}
+              visible={true}
+            >
+              Source Code
+            </BigButton>
           </a>
-        </ButtonPack> */}
+        </ButtonPack>
       </Card>
     </Background>
   );

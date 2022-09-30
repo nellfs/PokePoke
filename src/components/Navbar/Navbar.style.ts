@@ -17,8 +17,6 @@ export const NavbarStyle = styled.div`
   font-family: 'Roboto', sans-serif;
   font-weight: 600;
   position: fixed;
-  background-color: ${(props) => props.theme.colors.navbar_color};
-  border-bottom: 1px solid ${(p) => p.theme.colors.outline};
 `;
 
 export const NavbarItems = styled.div`
