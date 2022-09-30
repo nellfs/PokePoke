@@ -12,6 +12,7 @@ import {
   PokemonName,
   PokemonNumber,
   PokemonType,
+  PokemonTypeIcon,
   PokemonTypeList,
   RightSide,
 } from './PokemonCard.style';
@@ -38,15 +39,23 @@ const PokemonCard = (pokemon: IPokemon) => {
   }, [isVisible]);
 
   const renderTypes = pokemon.types.map((n, i) => {
+    const pokemonTypeName = pokemon.types[i].type.name;
     if (pokemon.types[i].type.name != undefined)
-      return <PokemonType key={i}>{pokemon.types[i].type.name}</PokemonType>;
+      return (
+        <PokemonType key={i} color_type={pokemon.types[i].type.name}>
+          <PokemonTypeIcon
+            src={`../../src/assets/img/poketypes/${pokemon.types[i].type.name}.svg`}
+          />
+          {pokemonTypeName[0].toUpperCase() + pokemonTypeName.substring(1)}
+        </PokemonType>
+      );
   });
 
   return transition(
     (styles, item) =>
       item && (
         <animated.div style={styles}>
-          <Link to={`${pokemon.id}`}>
+          <Link to={`${pokemon.id}`} style={{ textDecoration: 'none' }}>
             <PokemonCardStyle color_type={pokemon.types[0].type.name}>
               <PokemonName>{pokemon.name}</PokemonName>
               <PokemonContent>

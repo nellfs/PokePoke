@@ -1,7 +1,11 @@
 import styled, { css } from 'styled-components';
 import type_colors from '../../styles/type_colors';
+
+type color_type =
+  keyof typeof import('../../styles/type_colors')['default']['pokemon_types'];
+
 interface PokemonType {
-  color_type: keyof typeof import('../../styles/type_colors')['default']['pokemon_types'];
+  color_type: color_type;
 }
 
 export const PokemonCardStyle = styled.li<PokemonType>`
@@ -9,13 +13,13 @@ export const PokemonCardStyle = styled.li<PokemonType>`
     background: ${type_colors.pokemon_types[color_type]};
   `};
   position: relative;
-  border-radius: 12px;
+  border-radius: 10px;
   justify-content: left;
   cursor: pointer;
   width: 210px;
   height: 140px;
   overflow: hidden;
-  /* outline: 1px solid rgba(255, 255, 255, 0.4);
+  /* outline: 1px solid rgba(255, 255, 255, 0.6);
   outline-offset: -1px; */
   @media screen and (max-width: 480px) {
     width: 330px;
@@ -83,20 +87,27 @@ export const PokemonName = styled.h1`
   }
 `;
 
-export const PokemonType = styled.h2`
-  margin-left: 10px;
-  margin-bottom: 5px;
+export const PokemonTypeIcon = styled.img`
   display: inline-block;
-  padding-left: 10px;
-  padding-right: 10px;
+  margin-right: 5px;
+  width: 14px;
+`;
+
+export const PokemonType = styled.h2<PokemonType>`
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-left: 10px;
+  margin-bottom: 6px;
+  display: inline-flex;
+  padding-left: 6px;
+  padding-right: 6px;
   padding-bottom: 1px;
   padding-top: 1px;
   border-radius: 50px;
   font-weight: 500;
+  font-family: 'Montserrat';
+  font-size: 14px;
   color: white;
-  background-color: rgba(255, 255, 255, 0.15);
   outline: 1px solid rgba(255, 255, 255, 0.7);
-  font-size: 15px;
 `;
 
 export const PokemonNumber = styled.h3`
