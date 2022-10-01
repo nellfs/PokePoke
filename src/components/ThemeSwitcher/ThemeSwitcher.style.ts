@@ -21,6 +21,7 @@ export const ThemeSwitcherButton = styled.button`
   justify-content: space-between;
   width: 56px;
   user-select: none;
+  transition: background-color 0.3s ease;
 `;
 
 export const SwitchCircle = styled.div<ThemeSwitcherProps>`
