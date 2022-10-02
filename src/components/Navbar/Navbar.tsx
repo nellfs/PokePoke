@@ -7,12 +7,15 @@ import {
   RightSide,
 } from './Navbar.style';
 import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
+import { useInView } from 'react-intersection-observer';
 
 const NavBar = () => {
+  const { ref, inView } = useInView({ threshold: 0 });
+
   return (
     <>
-      <NavBarSpace />
-      <NavbarStyle>
+      <NavBarSpace ref={ref}></NavBarSpace>
+      <NavbarStyle visible={inView}>
         <NavbarItems>
           {/* <div>hello</div> */}
           <RightSide>

@@ -6,7 +6,7 @@ export default {
     background: '#f4f3f9',
     dark_background: '#e0e0ea',
     navbar_color: '#fff',
-    outline: '#cad1d9',
-    primary: '#dd0d2e',
+    outline: '#000',
+    primary: '#535bdd',
   },
 };

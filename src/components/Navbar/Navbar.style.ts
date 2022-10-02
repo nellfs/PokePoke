@@ -1,15 +1,21 @@
 import styled from 'styled-components';
 
+interface NavBarProps {
+  visible: boolean;
+}
+
 export const NavBarSpace = styled.div`
   height: 40px;
 `;
 
-export const NavbarStyle = styled.div`
+export const NavbarStyle = styled.div<NavBarProps>`
   top: 0;
   z-index: 10;
   width: 100%;
   display: flex;
   color: white;
+  opacity: ${(p) => (p.visible ? '100%' : '0')};
+  transition: all 0.3s;
   margin-right: auto;
   margin-left: auto;
   overflow: none;

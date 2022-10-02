@@ -4,7 +4,7 @@ import { InView } from 'react-intersection-observer';
 import api, { PokeClient } from '../../services';
 import { IPokemon } from '../../types/Pokemons/types';
 import PokemonCard from '../Cards/PokemonCard';
-import { PokemonSection, PokemonList } from './List.style';
+import { PokemonSection, PokemonList, Background } from './List.style';
 import Button from '../Button/Button';
 
 const List = () => {
@@ -78,7 +78,7 @@ const List = () => {
   });
 
   return (
-    <div>
+    <Background>
       <PokemonSection>
         <PokemonList>
           {allPokemons.map((pokemon: IPokemon) => (
@@ -93,7 +93,6 @@ const List = () => {
       </PokemonSection>
       <Button
         height={5}
-        color="blue"
         visible={canShowButton}
         onClick={() => {
           getAllPokemons();
@@ -113,7 +112,7 @@ const List = () => {
           }
         }}
       />
-    </div>
+    </Background>
   );
 };
 
