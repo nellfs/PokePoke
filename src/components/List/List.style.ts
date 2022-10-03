@@ -16,9 +16,9 @@ export const PokemonList = styled.ul`
   display: grid;
   margin-top: 64px;
   padding: 20px;
-  gap: 2rem 2rem;
-
-  box-sizing: border-box;
+  grid-gap: 2rem 2rem;
+  max-width: 1280px;
+  width: 90%;
   list-style: none;
 
   @media (min-width: 320px) {

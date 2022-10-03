@@ -20,8 +20,10 @@ export const PokemonCardStyle = styled.li<PokemonType>`
   margin: auto;
   display: flex;
   flex-direction: column;
-  width: 222px;
+  width: 100%;
   height: calc(100px + 25vh);
+  max-width: 222px;
+  max-height: 259px;
   /* height: 269px; */
   overflow: hidden;
 `;
