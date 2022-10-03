@@ -7,7 +7,6 @@ export const PokemonSection = styled.div`
 `;
 
 export const Background = styled.div`
-  background-color: ${(p) => p.theme.colors.primary};
   position: absolute;
   width: 100%;
   top: 0;
@@ -15,16 +14,22 @@ export const Background = styled.div`
 
 export const PokemonList = styled.ul`
   display: grid;
-  grid-gap: 10px;
-  list-style: none;
-  padding: 10px;
-  background-color: ${(p) => p.theme.colors.background};
+  margin-top: 64px;
+  padding: 20px;
+  gap: 2rem 2rem;
 
-  @media (min-width: 481px) {
+  box-sizing: border-box;
+  list-style: none;
+
+  @media (min-width: 320px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
   @media (min-width: 668px) {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 769px) {
+    grid-template-columns: repeat(4, 1fr);
   }
 `;

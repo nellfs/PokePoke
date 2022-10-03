@@ -1,10 +1,10 @@
 import { useTransition, animated } from 'react-spring';
 
 import { IPokemon } from '../../types/Pokemons/types';
-import pokeballBackground from '../../assets/img/pokeball_card_bg.png';
+import pokeballBackground from '../../assets/img/pokeball_bg.png';
 
 import {
-  LeftSide,
+  BottomBar,
   PokeballImage,
   PokemonCardStyle,
   PokemonContent,
@@ -14,7 +14,7 @@ import {
   PokemonType,
   PokemonTypeIcon,
   PokemonTypeList,
-  RightSide,
+  TopBar,
 } from './PokemonCard.style';
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -57,22 +57,22 @@ const PokemonCard = (pokemon: IPokemon) => {
         <animated.div style={styles}>
           <Link to={`${pokemon.id}`} style={{ textDecoration: 'none' }}>
             <PokemonCardStyle color_type={pokemon.types[0].type.name}>
-              <PokemonName>{pokemon.name}</PokemonName>
-              <PokemonContent>
-                <LeftSide>
-                  <PokemonTypeList>{renderTypes}</PokemonTypeList>
-                </LeftSide>
+              <TopBar>
+                <PokemonName>{pokemon.name}</PokemonName>
 
-                <RightSide>
-                  <PokeballImage src={pokeballBackground}></PokeballImage>
-                  <PokemonImage
-                    src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
-                  ></PokemonImage>
-                </RightSide>
+                <PokemonNumber>
+                  {pokemon.id < 10 ? '0' + pokemon.id : pokemon.id}
+                </PokemonNumber>
+              </TopBar>
+              <PokemonContent>
+                <PokeballImage src={pokeballBackground}></PokeballImage>
+                <PokemonImage
+                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
+                ></PokemonImage>
               </PokemonContent>
-              <PokemonNumber>
-                #{pokemon.id < 10 ? '0' + pokemon.id : pokemon.id}
-              </PokemonNumber>
+              <BottomBar>
+                <PokemonTypeList>{renderTypes}</PokemonTypeList>
+              </BottomBar>
             </PokemonCardStyle>
           </Link>
         </animated.div>
