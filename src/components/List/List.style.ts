@@ -14,9 +14,9 @@ export const Background = styled.div`
 
 export const PokemonList = styled.ul`
   display: grid;
-  margin-top: 64px;
-  padding: 20px;
-  grid-gap: 2rem 2rem;
+  margin-top: 70px;
+  margin-bottom: 10px;
+  grid-gap: 80px 16px;
   max-width: 1280px;
   width: 90%;
   list-style: none;

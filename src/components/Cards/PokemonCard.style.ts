@@ -13,7 +13,7 @@ export const PokemonCardStyle = styled.li<PokemonType>`
     background: ${type_colors.pokemon_types[color_type]};
   `}; */
   position: relative;
-  border: 1px solid #ffffff;
+  border: 1px solid ${(p) => p.theme.colors.outline};
   border-radius: 16px;
   justify-content: left;
   cursor: pointer;
@@ -21,10 +21,9 @@ export const PokemonCardStyle = styled.li<PokemonType>`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: calc(100px + 25vh);
   max-width: 222px;
-  max-height: 259px;
-  /* height: 269px; */
+  max-height: 269px;
+  height: 269px;
   overflow: hidden;
 `;
 
@@ -34,8 +33,9 @@ export const PokeballImage = styled.img`
   left: 14px;
   width: 166px;
   object-fit: contain;
-  opacity: 0.05;
   top: 34px;
+  opacity: 0.1;
+  filter: brightness(0%);
 `;
 
 export const TopBar = styled.div`
@@ -46,7 +46,7 @@ export const TopBar = styled.div`
 `;
 
 export const PokemonNumber = styled.div`
-  color: white;
+  color: ${(p) => p.theme.colors.text_default_color};
   font-size: 16px;
   line-height: 20px;
   font-weight: 700;
@@ -60,7 +60,7 @@ export const BottomBar = styled.div`
   justify-content: center;
   flex-direction: row;
   width: 100%;
-  height: 64px;
+  height: 52px;
   bottom: 0px;
 `;
 
@@ -87,9 +87,9 @@ export const PokemonName = styled.h1`
   font-style: normal;
   font-size: 16px;
   line-height: 20px;
-  color: white;
+  color: ${(p) => p.theme.colors.text_default_color};
   border-radius: 50px;
-  border: 1px solid white;
+  border: 1px solid ${(p) => p.theme.colors.outline};
   text-transform: capitalize;
 `;
 
@@ -104,11 +104,11 @@ export const PokemonType = styled.h2<PokemonType>`
     background: ${type_colors.pokemon_types[color_type]};
   `};
   display: inline-flex;
-  padding-left: 6px;
-  padding-right: 6px;
-  padding-bottom: 1px;
-  padding-top: 1px;
-  border-radius: 50px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  border-radius: 24px;
   font-weight: 500;
   font-family: 'Montserrat';
   font-size: 14px;
@@ -116,6 +116,6 @@ export const PokemonType = styled.h2<PokemonType>`
 `;
 
 export const PokemonTypeList = styled.div`
-  gap: 10px;
+  gap: 6px;
   display: flex;
 `;

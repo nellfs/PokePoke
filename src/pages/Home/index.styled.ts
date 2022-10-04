@@ -11,7 +11,6 @@ export const Background = styled.div`
     rgba(83, 91, 221, 1) 100%
   );
 
-  overflow: hidden;
   width: 100%;
   height: 100vh;
   display: flex;

@@ -9,21 +9,22 @@ body{
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    transition: all 0.2s ease;
+    transition: background 0.2s ease;
     background-color: ${(props) => props.theme.colors.background};
 }
 
 ::-webkit-scrollbar {
   width: 8px;
-  background-color: ${(p) => p.theme.colors.primary};
+  background-color: ${(p) => p.theme.colors.background};
 }
 
 ::-webkit-scrollbar-thumb {
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 10px;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(255, 255, 255, 0.1);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(200, 200, 200, 0.3);
 }
 }
 
