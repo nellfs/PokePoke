@@ -8,10 +8,7 @@ interface PokemonType {
   color_type: color_type;
 }
 
-export const PokemonCardStyle = styled.li<PokemonType>`
-  /* ${({ color_type }) => css`
-    background: ${type_colors.pokemon_types[color_type]};
-  `}; */
+export const PokemonCardStyle = styled.li`
   position: relative;
   border: 1px solid ${(p) => p.theme.colors.outline};
   border-radius: 16px;
@@ -21,8 +18,6 @@ export const PokemonCardStyle = styled.li<PokemonType>`
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 222px;
-  max-height: 269px;
   height: 269px;
   overflow: hidden;
 `;
@@ -40,7 +35,7 @@ export const PokeballImage = styled.img`
 
 export const TopBar = styled.div`
   height: 31px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: space-between;
 `;

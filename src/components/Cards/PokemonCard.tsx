@@ -55,26 +55,26 @@ const PokemonCard = (pokemon: IPokemon) => {
     (styles, item) =>
       item && (
         <animated.div style={styles}>
-          <PokemonCardStyle color_type={pokemon.types[0].type.name}>
-            {/* <Link to={`${pokemon.id}`} style={{ textDecoration: 'none' }}> */}
-            <TopBar>
-              <PokemonName>{pokemon.name}</PokemonName>
+          <Link to={`${pokemon.id}`} style={{ textDecoration: 'none' }}>
+            <PokemonCardStyle>
+              <TopBar>
+                <PokemonName>{pokemon.name}</PokemonName>
 
-              <PokemonNumber>
-                {pokemon.id < 10 ? '0' + pokemon.id : pokemon.id}
-              </PokemonNumber>
-            </TopBar>
-            <PokemonContent>
-              <PokeballImage src={pokeballBackground}></PokeballImage>
-              <PokemonImage
-                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
-              ></PokemonImage>
-            </PokemonContent>
-            <BottomBar>
-              <PokemonTypeList>{renderTypes}</PokemonTypeList>
-            </BottomBar>
-            {/* </Link> */}
-          </PokemonCardStyle>
+                <PokemonNumber>
+                  {pokemon.id < 10 ? '0' + pokemon.id : pokemon.id}
+                </PokemonNumber>
+              </TopBar>
+              <PokemonContent>
+                <PokeballImage src={pokeballBackground}></PokeballImage>
+                <PokemonImage
+                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
+                ></PokemonImage>
+              </PokemonContent>
+              <BottomBar>
+                <PokemonTypeList>{renderTypes}</PokemonTypeList>
+              </BottomBar>
+            </PokemonCardStyle>
+          </Link>
         </animated.div>
       )
   );

@@ -19,12 +19,11 @@ body{
 }
 
 ::-webkit-scrollbar-thumb {
-  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(128, 128, 128, 0.5);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(200, 200, 200, 0.3);
+  background: rgba(128, 128, 128, 0.8);
 }
 }
 
