@@ -1,7 +1,7 @@
 import { useTransition, animated } from 'react-spring';
 
 import { IPokemon } from '../../types/Pokemons/types';
-import pokeballBackground from '../../assets/img/pokeball_bg.png';
+import pokeballBackground from '../../assets/img/pokeball_card_bg.png';
 
 import {
   BottomBar,
@@ -39,14 +39,13 @@ const PokemonCard = (pokemon: IPokemon) => {
   }, [isVisible]);
 
   const renderTypes = pokemon.types.map((n, i) => {
-    const pokemonTypeName = pokemon.types[i].type.name;
     if (pokemon.types[i].type.name != undefined)
       return (
         <PokemonType key={i} color_type={pokemon.types[i].type.name}>
           <PokemonTypeIcon
             src={`../../src/assets/img/poketypes/${pokemon.types[i].type.name}.svg`}
           />
-          {pokemonTypeName[0].toUpperCase() + pokemonTypeName.substring(1)}
+          {pokemon.types[i].type.name}
         </PokemonType>
       );
   });

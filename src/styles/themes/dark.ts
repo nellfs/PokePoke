@@ -3,10 +3,10 @@ export default {
 
   colors: {
     text_default_color: '#fff',
-    background: '#2A2633',
+    background: '#20212F',
     dark_background: '#0f0f10',
     navbar_color: '#30388d',
-    outline: '#fff',
+    outline: '#474966',
     primary: '#222771',
   },
 };
