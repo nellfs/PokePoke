@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { PokeClient } from '../../services';
-import { IPokemon } from '../../types/Pokemons/types';
+import { IPokemon, IPokemonDetails } from '../../types/Pokemons/types';
 import {
   Background,
   Card,
+  InfoCard,
   PokemonImage,
   PokemonImageCard,
   PokemonName,
@@ -12,14 +13,13 @@ import {
 
 const PokemonPage = () => {
   const { pokemonId } = useParams();
-  const [pokemon, setPokemon] = useState<IPokemon>();
+  const [pokemon, setPokemon] = useState<IPokemonDetails>();
 
   const pokeClient = new PokeClient();
 
   useEffect(() => {
     return () => {
-      pokeClient.getEvolutionChain(1);
-      // pokeClient.getPokemon('pikachu');
+      pokeClient.getPokemonSpecies('pikachu');
     };
   }, []);
 
@@ -32,7 +32,15 @@ const PokemonPage = () => {
   return (
     <Background>
       <Card>
-        {/* <h2>weight {(pokemon.weight / 4.536).toFixed(1)}</h2> */}
+        {pokemon ? (
+          <InfoCard>
+            <div>weight {pokemon.weight / 10} kg</div>
+            <div>height {pokemon.height / 10} m</div>
+          </InfoCard>
+        ) : (
+          <div></div>
+        )}
+
         <PokemonImageCard color_type={'grass'}>
           <PokemonImage
             src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`}

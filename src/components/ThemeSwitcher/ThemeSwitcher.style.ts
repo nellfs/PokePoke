@@ -14,7 +14,6 @@ export const ThemeSwitcherButton = styled.button`
   align-items: center;
   font-size: 14px;
   height: 26px;
-  line-height: 20px;
   list-style: none;
   outline: none;
   padding: 1px 2px;

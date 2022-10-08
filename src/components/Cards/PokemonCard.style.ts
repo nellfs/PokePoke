@@ -29,7 +29,8 @@ export const PokeballImage = styled.img`
   width: 166px;
   object-fit: contain;
   top: 34px;
-  opacity: 0.05;
+  opacity: 0.1;
+  filter: brightness(0%);
 `;
 
 export const TopBar = styled.div`
@@ -76,7 +77,7 @@ export const PokemonName = styled.h1`
   font-weight: 700;
   z-index: 1;
   display: inline-flex;
-  padding: 0px 5px;
+  padding: 0px 8px;
   margin-left: 4px;
   font-style: normal;
   font-size: 16px;
@@ -103,9 +104,9 @@ export const PokemonType = styled.h2<PokemonType>`
   padding-bottom: 2px;
   padding-top: 2px;
   border-radius: 6px;
-  font-weight: 600;
+  font-weight: 500;
   font-family: 'Montserrat';
-  font-size: 16px;
+  font-size: 15px;
   color: white;
   text-transform: capitalize;
 `;

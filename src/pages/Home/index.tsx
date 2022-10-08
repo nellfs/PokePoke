@@ -21,7 +21,7 @@ const Home = () => {
           }}
         ></div>
         <ButtonPack>
-          <Link to={'/pokemons'} style={noTextDecoration}>
+          <Link to={'/pokemon'} style={noTextDecoration}>
             <BigButton
               height={42}
               color={'white'}

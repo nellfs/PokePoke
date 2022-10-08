@@ -46,9 +46,7 @@ export class PokeClient {
   };
 
   async getPokemonSpecies(pokemon: pokemon_data) {
-    const response = await this.get(
-      'https://pokeapi.co/api/v2/pokemon-species/' + pokemon
-    );
+    const response = await this.get('pokemon-species/' + pokemon);
     console.log(response);
   }
 

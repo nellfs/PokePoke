@@ -17,12 +17,12 @@ export const PokemonList = styled.ul`
   margin-top: 70px;
   margin-bottom: 10px;
   grid-gap: 80px 30px;
-  max-width: 1280px;
+  max-width: 1000px;
   width: 75%;
 
   list-style: none;
 
-  @media (min-width: 320px) {
+  @media (min-width: 465px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
