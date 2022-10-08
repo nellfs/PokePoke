@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { PokeClient } from '../../services';
-import { IPokemon, IPokemonDetails } from '../../types/Pokemons/types';
+import { IPokemonDetails, IPokemonSpecies } from '../../types/Pokemons/types';
 import {
   Background,
   Card,
@@ -14,20 +14,24 @@ import {
 const PokemonPage = () => {
   const { pokemonId } = useParams();
   const [pokemon, setPokemon] = useState<IPokemonDetails>();
+  const [pokemonEvolutionChain, setPokemonEvolutionChain] = useState();
 
   const pokeClient = new PokeClient();
 
   useEffect(() => {
     return () => {
-      pokeClient.getPokemonSpecies('pikachu');
+      if (pokemonId) {
+        fetch(pokeClient.getPokemonUrl(pokemonId))
+          .then((response) => response.json())
+          .then((data) => {
+            setPokemon(data);
+            pokeClient
+              .getPokemonEvolutionChain(pokemonId)
+              .then((data) => setPokemonEvolutionChain(data));
+          });
+      }
     };
   }, []);
-
-  if (pokemonId) {
-    fetch(pokeClient.getPokemonUrl(pokemonId))
-      .then((response) => response.json())
-      .then((data) => setPokemon(data));
-  }
 
   return (
     <Background>
@@ -36,6 +40,9 @@ const PokemonPage = () => {
           <InfoCard>
             <div>weight {pokemon.weight / 10} kg</div>
             <div>height {pokemon.height / 10} m</div>
+            <div>{pokemon.types[0].type.name}</div>
+            <div>{pokemon.types[1]?.type.name}</div>
+            <div>{`${pokemonEvolutionChain}`}</div>
           </InfoCard>
         ) : (
           <div></div>

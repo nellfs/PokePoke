@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import solid_colors from '../../styles/solid_colors';
 
 export interface ButtonStyleProps {

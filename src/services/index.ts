@@ -42,17 +42,36 @@ export class PokeClient {
   }
 
   getPokemonUrl = <pokemon_data>(pokemon: pokemon_data) => {
-    return `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
+    return `${this.basePath}pokemon/${pokemon}`;
   };
 
   async getPokemonSpecies(pokemon: pokemon_data) {
     const response = await this.get('pokemon-species/' + pokemon);
-    console.log(response);
+    console.log(response.data);
+  }
+
+  async getPokemonEvolutionChain(pokemon: pokemon_data) {
+    const species = await this.get('pokemon-species/' + pokemon);
+    const evolution_chain_url = await species.data.evolution_chain.url;
+    const request = await fetch(evolution_chain_url)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(
+          data.chain.species.name,
+          data.chain.evolves_to[0].species.name,
+          data.chain.evolves_to[0].evolves_to[0].species.name
+        );
+      });
+    return request;
   }
 
   async getEvolutionChain(pokemon: number) {
     const response = await this.get('evolution-chain/' + pokemon);
     console.log(response);
+  }
+
+  async getTypes(pokemon: pokemon_data) {
+    const response = await this.get('pokemon');
   }
 
   async getPokemon(pokemon: pokemon_data) {

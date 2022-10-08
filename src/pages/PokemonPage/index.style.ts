@@ -22,6 +22,7 @@ export const Background = styled.div`
 
 export const InfoCard = styled.div`
   background: red;
+  width: 400px;
 `;
 
 export const Card = styled.div`
