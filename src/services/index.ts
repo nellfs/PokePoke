@@ -42,7 +42,7 @@ export class PokeClient {
   }
 
   getPokemonUrl = <pokemon_data>(pokemon: pokemon_data) => {
-    // TODO return `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
+    return `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
   };
 
   async getPokemonSpecies(pokemon: pokemon_data) {
