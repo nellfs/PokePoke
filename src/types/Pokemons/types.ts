@@ -50,6 +50,20 @@ export interface IPokemonSpecies {
 
 export interface IPokemonEvolutionChain {
   chain: {
+    evolves_to: [
+      {
+        species: {
+          name: string;
+        };
+        evolves_to: [
+          {
+            species: {
+              name: string;
+            };
+          }
+        ];
+      }
+    ];
     species: {
       name: string;
     };

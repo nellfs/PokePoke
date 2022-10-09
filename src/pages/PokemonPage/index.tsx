@@ -4,7 +4,6 @@ import { PokeClient } from '../../services';
 import {
   IPokemonDetails,
   IPokemonEvolutionChain,
-  IPokemonSpecies,
 } from '../../types/Pokemons/types';
 import {
   Background,
@@ -41,6 +40,21 @@ const PokemonPage = () => {
     };
   }, []);
 
+  const finalEvolutionChain = () => {
+    const firstForm = evolutionChain?.chain.species.name;
+    const secondForm = evolutionChain?.chain?.evolves_to[0]?.species?.name;
+    const thirdForm =
+      evolutionChain?.chain?.evolves_to[0]?.evolves_to[0]?.species.name;
+
+    return (
+      <div style={{ background: 'white' }}>
+        <div>{firstForm}</div>
+        <div>{secondForm}</div>
+        <div>{thirdForm}</div>
+      </div>
+    );
+  };
+
   return (
     <Background>
       <Card>
@@ -50,7 +64,7 @@ const PokemonPage = () => {
             <div>height {pokemon.height / 10} m</div>
             <div>{pokemon.types[0].type.name}</div>
             <div>{pokemon.types[1]?.type.name}</div>
-            <div>{`${evolutionChain?.chain.species.name}`}</div>
+            {finalEvolutionChain()}
           </InfoCard>
         ) : (
           <div></div>
