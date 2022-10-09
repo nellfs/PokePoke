@@ -43,6 +43,15 @@ export interface IPokemonDetails extends IPokemon {
 }
 
 export interface IPokemonSpecies {
-  flavor_text: string;
-  evolution_chain: string;
+  evolution_chain: {
+    url: string;
+  };
+}
+
+export interface IPokemonEvolutionChain {
+  chain: {
+    species: {
+      name: string;
+    };
+  };
 }

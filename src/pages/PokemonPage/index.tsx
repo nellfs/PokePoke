@@ -25,9 +25,9 @@ const PokemonPage = () => {
           .then((response) => response.json())
           .then((data) => {
             setPokemon(data);
-            pokeClient
-              .getPokemonEvolutionChain(pokemonId)
-              .then((data) => setPokemonEvolutionChain(data));
+            pokeClient.getPokemonEvolutionChain(pokemonId).then((data) => {
+              setPokemonEvolutionChain(String(data));
+            });
           });
       }
     };

@@ -1,3 +1,8 @@
+import {
+  IPokemonEvolutionChain,
+  IPokemonSpecies,
+} from '../types/Pokemons/types';
+
 const api_limit = 12;
 const api_value = `https://pokeapi.co/api/v2/pokemon?limit=${api_limit}`;
 const api_maxvalue = 898;
@@ -32,12 +37,11 @@ export class PokeClient {
     }
   }
 
-  async get<R>(path: string): Promise<Response<R>> {
-    const url = `${this.basePath}${path}`;
+  async get<R>(path: string, useBasePath = true): Promise<Response<R>> {
+    const url = `${useBasePath === true ? this.basePath + path : path}`;
     const options: RequestInit = {
       method: 'GET',
     };
-
     return this.send(url, options);
   }
 
@@ -45,24 +49,25 @@ export class PokeClient {
     return `${this.basePath}pokemon/${pokemon}`;
   };
 
-  async getPokemonSpecies(pokemon: pokemon_data) {
-    const response = await this.get('pokemon-species/' + pokemon);
-    console.log(response.data);
+  async getPokemonSpecies(
+    pokemon: pokemon_data
+  ): Promise<Response<IPokemonSpecies>> {
+    const response: Response<IPokemonSpecies> = await this.get(
+      'pokemon-species/' + pokemon
+    );
+    return response;
   }
 
-  async getPokemonEvolutionChain(pokemon: pokemon_data) {
-    const species = await this.get('pokemon-species/' + pokemon);
-    const evolution_chain_url = await species.data.evolution_chain.url;
-    const request = await fetch(evolution_chain_url)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(
-          data.chain.species.name,
-          data.chain.evolves_to[0].species.name,
-          data.chain.evolves_to[0].evolves_to[0].species.name
-        );
-      });
-    return request;
+  async getPokemonEvolutionChain(
+    pokemon: pokemon_data
+  ): Promise<Response<IPokemonEvolutionChain>> {
+    const species = await this.getPokemonSpecies(pokemon);
+    const evolution_chain_url = species.data?.evolution_chain.url;
+    const evolution_chain: Response<IPokemonEvolutionChain> = await this.get(
+      `${evolution_chain_url}`,
+      false
+    );
+    return evolution_chain;
   }
 
   async getEvolutionChain(pokemon: number) {
@@ -70,9 +75,9 @@ export class PokeClient {
     console.log(response);
   }
 
-  async getTypes(pokemon: pokemon_data) {
-    const response = await this.get('pokemon');
-  }
+  // async getTypes(pokemon: pokemon_data) {
+  //   const response = await this.get('pokemon');
+  // }
 
   async getPokemon(pokemon: pokemon_data) {
     const response = await this.get('pokemon/' + pokemon);
