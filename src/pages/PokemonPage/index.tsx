@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { PokeClient } from '../../services';
-import { IPokemonDetails, IPokemonSpecies } from '../../types/Pokemons/types';
+import {
+  IPokemonDetails,
+  IPokemonEvolutionChain,
+  IPokemonSpecies,
+} from '../../types/Pokemons/types';
 import {
   Background,
   Card,
@@ -14,7 +18,8 @@ import {
 const PokemonPage = () => {
   const { pokemonId } = useParams();
   const [pokemon, setPokemon] = useState<IPokemonDetails>();
-  const [pokemonEvolutionChain, setPokemonEvolutionChain] = useState();
+  const [evolutionChain, setEvolutionChain] =
+    useState<IPokemonEvolutionChain>();
 
   const pokeClient = new PokeClient();
 
@@ -25,8 +30,11 @@ const PokemonPage = () => {
           .then((response) => response.json())
           .then((data) => {
             setPokemon(data);
-            pokeClient.getPokemonEvolutionChain(pokemonId).then((data) => {
-              setPokemonEvolutionChain(String(data));
+            pokeClient.getPokemonEvolutionChain(pokemonId).then((response) => {
+              if (response.data) {
+                const chain: IPokemonEvolutionChain = response.data;
+                setEvolutionChain(chain);
+              }
             });
           });
       }
@@ -42,7 +50,7 @@ const PokemonPage = () => {
             <div>height {pokemon.height / 10} m</div>
             <div>{pokemon.types[0].type.name}</div>
             <div>{pokemon.types[1]?.type.name}</div>
-            <div>{`${pokemonEvolutionChain}`}</div>
+            <div>{`${evolutionChain?.chain.species.name}`}</div>
           </InfoCard>
         ) : (
           <div></div>
